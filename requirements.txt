@@ -1,0 +1,8 @@
+# Dependencias Python para el proyecto
+# Actualizar este archivo cada vez que se añada una nueva librería
+
+# Librerías comunes
+python-dotenv==1.0.0
+requests==2.31.0
+
+# Añadir más dependencias según se necesiten
