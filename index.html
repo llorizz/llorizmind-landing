@@ -24,6 +24,11 @@
 </head>
 
 <body>
+    <div id="ambient-background">
+        <div class="ambient-light light-1"></div>
+        <div class="ambient-light light-2"></div>
+        <div class="ambient-light light-3"></div>
+    </div>
 
     <!-- ============================================
        HEADER
@@ -67,7 +72,8 @@
                             d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
                             clip-rule="evenodd"></path>
                     </svg>
-                    <span>Líderes en Automatización de Habla Hispana</span>
+                    <span>Automatizamos de forma <span class="highlight">inteligente</span> para trabajar de forma <span
+                            class="highlight">inteligente</span></span>
                 </div>
 
                 <h1 class="hero-title">
@@ -75,7 +81,7 @@
                 </h1>
 
                 <p class="hero-description">
-                    Transformamos operaciones complejas en flujos simples, con soluciones de IA que trabajan por ti.
+                    Simplificamos operaciones complejas con soluciones de IA que trabajan por ti.
                 </p>
 
                 <div class="hero-cta">
@@ -91,45 +97,101 @@
     <section class="section" id="beneficios">
         <div class="container">
             <div class="section-header">
-                <div class="section-tag">BENEFICIOS</div>
-                <h2 class="section-title">Optimiza, Acelera y Automatiza</h2>
+                <div class="section-tag">RESULTADOS REALES</div>
+                <h2 class="section-title">Procesos más rápidos, simples y eficientes</h2>
                 <p class="section-description">
-                    Reduce los costes operativos y elimina tareas repetitivas con soluciones inteligentes que mejoran la
-                    eficiencia y la precisión en cada proceso.
+                    Reduce la carga operativa y deja atrás las tareas repetitivas.
+                    Nuestras soluciones inteligentes optimizan cada proceso para que tu negocio avance con más
+                    eficiencia y precisión.
                 </p>
             </div>
 
             <div class="benefits-grid">
                 <div class="card benefit-card fade-in">
-                    <div class="card-icon">
-                        <img src="assets/images/reduce_manual.png" alt="Reducción del Trabajo Manual">
+                    <div class="card-icon animated-icon-container">
+                        <!-- Icon: Automation/Gears (Animated) -->
+                        <svg class="animated-icon icon-hollow-gears" viewBox="0 0 64 64" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g class="gear-group-1">
+                                <path
+                                    d="M32 6C33.6569 6 35 7.34315 35 9V11.09C36.6006 11.4599 38.1099 12.0673 39.4851 12.8727L41.1115 11.2464C42.283 10.0748 44.1825 10.0748 45.3541 11.2464L48.7536 14.6459C49.9252 15.8175 49.9252 17.717 48.7536 18.8885L47.1273 20.5149C47.9327 21.8901 48.5401 23.3994 48.91 25H51C52.6569 25 54 26.3431 54 28V36C54 37.6569 52.6569 39 51 39H48.91C48.5401 40.6006 47.9327 42.1099 47.1273 43.4851L48.7536 45.1115C49.9252 46.283 49.9252 48.1825 48.7536 49.3541L45.3541 52.7536C44.1825 53.9252 42.283 53.9252 41.1115 52.7536L39.4851 51.1273C38.1099 51.9327 36.6006 52.5401 35 52.91V55C35 56.6569 33.6569 58 32 58H24C22.3431 58 21 56.6569 21 55V52.91C19.3994 52.5401 17.8901 51.9327 16.5149 51.1273L14.8885 52.7536C13.717 53.9252 11.8175 53.9252 10.6459 52.7536L7.24645 49.3541C6.07487 48.1825 6.07487 46.283 7.24645 45.1115L8.87274 43.4851C8.06734 42.1099 7.45995 40.6006 7.09001 39H5C3.34315 39 2 37.6569 2 36V28C2 26.3431 3.34315 25 5 25H7.09001C7.45995 23.3994 8.06734 21.8901 8.87274 20.5149L7.24645 18.8885C6.07487 17.717 6.07487 15.8175 7.24645 14.6459L10.6459 11.2464C11.8175 10.0748 13.717 10.0748 14.8885 11.2464L16.5149 12.8727C17.8901 12.0673 19.3994 11.4599 21 11.09V9C21 7.34315 22.3431 6 24 6H32Z"
+                                    stroke="var(--color-primary)" stroke-width="2" stroke-linejoin="round" />
+                                <circle cx="28" cy="32" r="8" stroke="var(--color-primary)" stroke-width="2" />
+                            </g>
+                            <g class="gear-group-2">
+                                <path
+                                    d="M48 38C48.5523 38 49 38.4477 49 39V40.054C49.7712 40.2312 50.4996 40.5233 51.1643 40.9126L52.0962 39.9808C52.4867 39.5902 53.1199 39.5902 53.5104 39.9808L55.0192 41.4896C55.4098 41.8801 55.4098 42.5133 55.0192 42.9038L54.0874 43.8357C54.4767 44.5004 54.7688 45.2288 54.946 46H56C56.5523 46 57 46.4477 57 47V49C57 49.5523 56.5523 50 56 50H54.946C54.7688 50.7712 54.4767 51.5 54.0874 52.1643L55.0192 53.0962C55.4098 53.4867 55.4098 54.1199 55.0192 54.5104L53.5104 56.0192C53.1199 56.4098 52.4867 56.4098 52.0962 56.0192L51.1643 55.0874C50.4996 55.4767 49.7712 55.7688 49 55.946V57C49 57.5523 48.5523 58 48 58H46C45.4477 58 45 57.5523 45 57V55.946C44.2288 55.7688 43.5004 55.4767 42.8357 55.0874L41.9038 56.0192C41.5133 56.4098 40.8801 56.4098 40.4896 56.0192L38.9808 54.5104C38.5902 54.1199 38.5902 53.4867 38.9808 53.0962L39.9126 52.1643C39.5233 51.5 39.2312 50.7712 39.054 50H38C37.4477 50 37 49.5523 37 49V47C37 46.4477 37.4477 46 38 46H39.054C39.2312 45.2288 39.5233 44.5004 39.9126 43.8357L38.9808 42.9038C38.5902 42.5133 38.5902 41.8801 38.9808 41.4896L40.4896 39.9808C40.8801 39.5902 41.5133 39.5902 41.9038 39.9808L42.8357 40.9126C43.5004 40.5233 44.2288 40.2312 45 40.054V39C45 38.4477 45.4477 38 46 38H48Z"
+                                    stroke="var(--color-secondary)" stroke-width="2" stroke-linejoin="round" />
+                            </g>
+                        </svg>
                     </div>
-                    <h3 class="card-title">Reducción del Trabajo Manual</h3>
+                    <h3 class="card-title">Menos tareas manuales, más foco en lo importante</h3>
                     <p class="card-description">
-                        Automatiza tareas repetitivas y ahorra tiempo. Desde respuestas a clientes hasta documentos: la
-                        IA se encarga, tu equipo se enfoca en lo importante.
+                        La automatización se encarga de los procesos repetitivos, desde la atención al cliente hasta
+                        la
+                        gestión documental. Tu equipo gana tiempo para centrarse en decisiones y tareas de mayor
+                        valor.
                     </p>
                 </div>
 
                 <div class="card benefit-card fade-in">
-                    <div class="card-icon">
-                        <img src="assets/images/speed.png" alt="Mayor Velocidad Operativa">
+                    <div class="card-icon animated-icon-container">
+                        <!-- Icon: Speed/Rocket (Animated) -->
+                        <svg class="animated-icon icon-rocket" viewBox="0 0 64 64" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path class="rocket-body"
+                                d="M32 4L42 22C42 22 46 32 46 40C46 52 38 58 32 58C26 58 18 52 18 40C18 32 22 22 22 22L32 4Z"
+                                stroke="var(--color-primary)" stroke-width="2" stroke-linejoin="round" />
+                            <path class="rocket-fin-left" d="M18 40L8 52H18" stroke="var(--color-primary)"
+                                stroke-width="2" stroke-linejoin="round" />
+                            <path class="rocket-fin-right" d="M46 40L56 52H46" stroke="var(--color-primary)"
+                                stroke-width="2" stroke-linejoin="round" />
+                            <path class="rocket-window"
+                                d="M32 32C34.2091 32 36 30.2091 36 28C36 25.7909 34.2091 24 32 24C29.7909 24 28 25.7909 28 28C28 30.2091 29.7909 32 32 32Z"
+                                fill="var(--color-secondary)" />
+                            <g class="rocket-flame">
+                                <path d="M28 58L32 63L36 58" stroke="var(--color-accent)" stroke-width="2"
+                                    stroke-linejoin="round" />
+                            </g>
+                            <g class="speed-lines">
+                                <path d="M10 10 L10 20" stroke="var(--color-text-muted)" stroke-width="1"
+                                    stroke-linecap="round" />
+                                <path d="M6 25 L6 35" stroke="var(--color-text-muted)" stroke-width="1"
+                                    stroke-linecap="round" />
+                            </g>
+                        </svg>
                     </div>
-                    <h3 class="card-title">Mayor Velocidad Operativa</h3>
+                    <h3 class="card-title">Velocidad que impulsa tu operación</h3>
                     <p class="card-description">
-                        Respuestas en segundos, decisiones en tiempo real. Elimina cuellos de botella con flujos
-                        automatizados y agentes que trabajan 24/7.
+                        Respuestas inmediatas y decisiones en tiempo real. Los flujos automatizados eliminan
+                        cuellos de
+                        botella y mantienen tus procesos activos las 24 horas, todos los días.
                     </p>
                 </div>
 
                 <div class="card benefit-card fade-in">
-                    <div class="card-icon">
-                        <img src="assets/images/errors.png" alt="Menos Errores Humanos">
+                    <div class="card-icon animated-icon-container">
+                        <!-- Icon: Precision/Target (Animated) -->
+                        <svg class="animated-icon icon-precision" viewBox="0 0 64 64" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <circle class="precision-outer" cx="32" cy="32" r="28" stroke="var(--color-primary)"
+                                stroke-width="2" />
+                            <circle class="precision-middle" cx="32" cy="32" r="18" stroke="var(--color-secondary)"
+                                stroke-width="2" stroke-dasharray="10 5" />
+                            <circle class="precision-center" cx="32" cy="32" r="6" fill="var(--color-accent)" />
+                            <path class="precision-crosshair-v" d="M32 4V60" stroke="var(--color-primary)"
+                                stroke-width="1" stroke-opacity="0.5" />
+                            <path class="precision-crosshair-h" d="M4 32H60" stroke="var(--color-primary)"
+                                stroke-width="1" stroke-opacity="0.5" />
+                            <path class="check-mark" d="M44 20L28 44L20 36" stroke="var(--color-text-primary)"
+                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
                     </div>
-                    <h3 class="card-title">Menos Errores Humanos</h3>
+                    <h3 class="card-title">Procesos más precisos y consistentes</h3>
                     <p class="card-description">
-                        Toma de decisiones más precisa y estandarizada. Automatizar significa menos fallos, menos
-                        retrabajos y más calidad en cada proceso.
+                        La automatización reduce errores, retrabajos y variaciones. Obtén decisiones más
+                        consistentes y
+                        una mayor calidad en cada paso del proceso.
                     </p>
                 </div>
             </div>
@@ -142,34 +204,46 @@
     <section class="section" id="servicios">
         <div class="container">
             <div class="section-header">
-                <div class="section-tag">SERVICIOS</div>
-                <h2 class="section-title">Transformamos tu Operación con Inteligencia Artificial</h2>
+                <div class="section-tag">SOLUCIONES</div>
+                <h2 class="section-title">Impulsamos tu operación con Inteligencia Artificial</h2>
                 <p class="section-description">
-                    Desde la captación de clientes hasta la gestión documental y operativa, optimizamos cada fase de tu
-                    flujo de trabajo con tecnología avanzada.
+                    Generación de oportunidades & gestión operativa, aplicamos IA para optimizar cada etapa de tu flujo
+                    de trabajo de forma eficiente y escalable.
                 </p>
             </div>
 
             <div class="services-grid">
                 <div class="card service-card fade-in">
                     <div class="service-card-visual">
-                        <img src="assets/images/leads.png" alt="Automatización de Leads">
+                        <img src="assets/images/service_leads.jpg" alt="Automatización de Leads">
                     </div>
-                    <h3 class="card-title">Automatización de Leads</h3>
+                    <h3 class="card-title">Captación y conversión automatizada</h3>
                     <p class="card-description">
-                        Convierte más leads, más rápido. Automatiza la calificación de leads, los seguimientos y la
-                        programación de citas con agentes de IA, aumentando la conversión sin esfuerzo.
+                        Automatiza la cualificación de leads, los seguimientos y la gestión de citas con agentes de IA.
+                        Aumenta la conversión y reduce el esfuerzo manual en todo el proceso comercial.
                     </p>
                 </div>
 
                 <div class="card service-card fade-in">
                     <div class="service-card-visual">
-                        <img src="assets/images/leads.png" alt="Automatización de Base de Conocimientos">
+                        <img src="assets/images/service_rag.jpg" alt="Automatización de Base de Conocimientos">
                     </div>
-                    <h3 class="card-title">Automatización de Base de Conocimientos (RAG)</h3>
+                    <h3 class="card-title">Respuestas precisas, en tiempo real</h3>
                     <p class="card-description">
-                        Responde todo, al instante. Implementa agentes RAG inteligentes que extraen respuestas en tiempo
-                        real de tus documentos internos, FAQs o SOPs — cero alucinaciones.
+                        Implementa agentes RAG que acceden directamente a tu conocimiento interno —documentos, FAQs o
+                        SOPs— para ofrecer respuestas inmediatas, fiables y alineadas con tu información real.
+                    </p>
+                </div>
+
+                <div class="card service-card fade-in">
+                    <div class="service-card-visual">
+                        <img src="assets/images/service_ops.jpg" alt="Automatización de Procesos Operativos">
+                    </div>
+                    <h3 class="card-title">Operaciones inteligentes y sin fricción</h3>
+                    <p class="card-description">
+                        Automatiza flujos internos como gestión documental, validaciones, traspaso de datos y tareas
+                        administrativas. La IA se integra con tus herramientas para ejecutar procesos de forma continua,
+                        reducir errores y escalar la operación sin añadir complejidad.
                     </p>
                 </div>
             </div>

@@ -9,19 +9,19 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Smooth scroll for all anchor links
   const anchorLinks = document.querySelectorAll('a[href^="#"]');
-  
+
   anchorLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
       const targetId = link.getAttribute('href');
-      
+
       if (targetId === '#') return;
-      
+
       const targetElement = document.querySelector(targetId);
       if (targetElement) {
         const headerHeight = document.querySelector('.header').offsetHeight;
         const targetPosition = targetElement.offsetTop - headerHeight;
-        
+
         window.scrollTo({
           top: targetPosition,
           behavior: 'smooth'
@@ -39,14 +39,14 @@ let lastScroll = 0;
 
 window.addEventListener('scroll', () => {
   const currentScroll = window.pageYOffset;
-  
+
   // Add/remove scrolled class based on scroll position
   if (currentScroll > 50) {
     header.classList.add('scrolled');
   } else {
     header.classList.remove('scrolled');
   }
-  
+
   lastScroll = currentScroll;
 });
 
@@ -84,12 +84,12 @@ const nav = document.querySelector('.nav');
 if (mobileMenuToggle && nav) {
   mobileMenuToggle.addEventListener('click', () => {
     nav.classList.toggle('active');
-    
+
     // Update toggle icon
     const isActive = nav.classList.contains('active');
     mobileMenuToggle.textContent = isActive ? '✕' : '☰';
   });
-  
+
   // Close menu when clicking on a link
   const navLinks = nav.querySelectorAll('.nav-link');
   navLinks.forEach(link => {
@@ -109,12 +109,33 @@ if (heroWaves) {
   window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
     const heroHeight = document.querySelector('.hero').offsetHeight;
-    
+
     // Only apply parallax within hero section
     if (scrolled < heroHeight) {
       const parallaxSpeed = 0.3;
       heroWaves.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
     }
+  });
+}
+
+
+// ============================================
+// AMBIENT BACKGROUND INTERACTIVITY (MOUSE)
+// ============================================
+const ambientLights = document.querySelectorAll('.ambient-light');
+
+if (ambientLights.length > 0) {
+  document.addEventListener('mousemove', (e) => {
+    const mouseX = e.clientX / window.innerWidth;
+    const mouseY = e.clientY / window.innerHeight;
+
+    ambientLights.forEach((light, index) => {
+      const isOdd = index % 2 !== 0;
+      const moveX = (mouseX - 0.5) * (isOdd ? 50 : -50);
+      const moveY = (mouseY - 0.5) * (isOdd ? 50 : -50);
+
+      light.style.transform = `translate(${moveX}px, ${moveY}px)`;
+    });
   });
 }
 
@@ -136,16 +157,16 @@ function debounce(func, wait = 10, immediate = true) {
   return function executedFunction() {
     const context = this;
     const args = arguments;
-    
-    const later = function() {
+
+    const later = function () {
       timeout = null;
       if (!immediate) func.apply(context, args);
     };
-    
+
     const callNow = immediate && !timeout;
     clearTimeout(timeout);
     timeout = setTimeout(later, wait);
-    
+
     if (callNow) func.apply(context, args);
   };
 }
@@ -160,7 +181,7 @@ ctaButtons.forEach(button => {
   button.addEventListener('click', (e) => {
     // Add analytics tracking here
     console.log('CTA clicked:', e.target.textContent);
-    
+
     // Example: Send to analytics
     // gtag('event', 'cta_click', { button_text: e.target.textContent });
   });
@@ -198,7 +219,7 @@ if ('PerformanceObserver' in window) {
   } catch (e) {
     console.log('LCP measurement not supported');
   }
-  
+
   // Cumulative Layout Shift (CLS)
   try {
     let clsScore = 0;
