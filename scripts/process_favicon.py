@@ -3,7 +3,7 @@ import os
 from PIL import Image
 
 def process_favicon(input_path, output_path, size=(128, 128)):
-    print(f"Propcessing: {input_path}")
+    print(f"Processing: {input_path}")
     
     if not os.path.exists(input_path):
         print(f"Error: Input file not found at {input_path}")
@@ -39,7 +39,8 @@ def process_favicon(input_path, output_path, size=(128, 128)):
 
 if __name__ == "__main__":
     # CONFIGURATION
-    SOURCE_IMAGE = "/Users/diego/.gemini/antigravity/brain/7c6aab9b-4ce8-4147-9009-eb4a1ecd3a0b/uploaded_media_1769710292873.png"
-    DEST_IMAGE = "/Users/diego/Documents/proyectos antigravity/creador pagina web/assets/images/favicon.png"
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    SOURCE_IMAGE = os.path.join(BASE_DIR, "assets", "images", "llorizmind_logo.png")
+    DEST_IMAGE = os.path.join(BASE_DIR, "assets", "images", "favicon.png")
     
     process_favicon(SOURCE_IMAGE, DEST_IMAGE)
