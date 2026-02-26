@@ -440,6 +440,17 @@ p {
   color: var(--color-primary);
 }
 
+.nav-link-legal {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  opacity: 0.8;
+}
+
+.nav-link-legal:hover {
+  color: var(--color-primary);
+  opacity: 1;
+}
+
 .header-cta {
   display: none;
 }
