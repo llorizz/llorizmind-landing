@@ -1,435 +1,622 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="no-js">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Agentes de IA para inmobiliarias | LLorizzMind</title>
     <meta name="description"
-        content="Automatiza, escala y gana con soluciones de IA que transforman tu operación. Líderes en automatización inteligente.">
-    <meta name="keywords" content="automatización, inteligencia artificial, IA, leads, RAG, base de conocimientos">
+        content="Agentes de IA que atienden, cualifican y agendan visitas 24/7 en WhatsApp, Idealista y Fotocasa. Con CRM incluido. Para inmobiliarias en España y LATAM.">
+    <meta name="keywords"
+        content="agente IA inmobiliaria, cualificación de leads inmobiliarios, CRM inmobiliario con IA, automatización agencia inmobiliaria">
     <meta name="author" content="LLorizzMind">
+    <link rel="canonical" href="https://llorizzmind.com/">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="LLorizzMind | Automatiza, Escala y Gana">
-    <meta property="og:description"
-        content="Automatiza, escala y gana con soluciones de IA que transforman tu operación.">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://llorizzmind.com/">
+    <meta property="og:title" content="Agentes de IA para inmobiliarias | LLorizzMind">
+    <meta property="og:description"
+        content="Agentes de IA que atienden, cualifican y agendan visitas 24/7 en WhatsApp, Idealista y Fotocasa. Con CRM incluido.">
+    <meta property="og:image" content="https://llorizzmind.com/assets/images/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="es_ES">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Agentes de IA para inmobiliarias | LLorizzMind">
+    <meta name="twitter:description"
+        content="Agentes de IA que atienden, cualifican y agendan visitas 24/7 en WhatsApp, Idealista y Fotocasa. Con CRM incluido.">
+    <meta name="twitter:image" content="https://llorizzmind.com/assets/images/og.png">
 
-    <title>LLorizzMind | Automatización e Inteligencia Artificial Enterprise</title>
+    <!-- Fuentes críticas -->
+    <link rel="preload" href="assets/fonts/SpaceGrotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 
     <link rel="stylesheet" href="styles.css">
 
-    <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://llorizzmind.com/#org",
+          "name": "LLorizzMind",
+          "url": "https://llorizzmind.com/",
+          "logo": "https://llorizzmind.com/assets/images/logo-navy.png",
+          "email": "montero@llorizzmind.com",
+          "description": "Agencia de automatización con IA para inmobiliarias en España y LATAM."
+        },
+        {
+          "@type": "Service",
+          "name": "Agentes de IA y CRM para inmobiliarias",
+          "serviceType": "Automatización con IA para agencias inmobiliarias",
+          "provider": { "@id": "https://llorizzmind.com/#org" },
+          "areaServed": [
+            { "@type": "Country", "name": "ES" },
+            { "@type": "Country", "name": "MX" },
+            { "@type": "Country", "name": "AR" }
+          ],
+          "description": "Agentes de IA conversacionales que atienden, cualifican y agendan visitas en WhatsApp, Idealista y Fotocasa, con CRM inmobiliario incluido."
+        }
+      ]
+    }
+    </script>
 </head>
 
 <body>
-    <div id="ambient-background">
-        <div class="ambient-light light-1"></div>
-        <div class="ambient-light light-2"></div>
-        <div class="ambient-light light-3"></div>
-    </div>
 
-    <!-- ============================================
-       HEADER
-       ============================================ -->
-    <header class="header" id="header">
-        <div class="container">
-            <a href="#" class="logo">
-                <img src="assets/images/logo blanco copia.png" alt="LLorizzMind Logo" class="logo-icon">
-                <span class="logo-text">LLorizzMind</span>
+    <!-- ============ NAV ============ -->
+    <header class="nav" id="nav">
+        <div class="container nav-inner">
+            <a href="#" class="nav-logo" aria-label="LlorizzMind — inicio">
+                <img src="assets/images/logo-navy.png" alt="" width="94" height="45">
+                <span class="nav-wordmark">LlorizzMind</span>
             </a>
 
-            <nav class="nav">
-                <ul class="nav-list">
-                    <li><a href="#beneficios" class="nav-link">Beneficios</a></li>
-                    <li><a href="#servicios" class="nav-link">Servicios</a></li>
-                    <li><a href="#proceso" class="nav-link">Proceso</a></li>
+            <nav class="nav-desktop" aria-label="Principal">
+                <ul class="nav-links">
+                    <li><a href="#como-funciona" class="nav-link">Cómo funciona</a></li>
+                    <li><a href="#producto" class="nav-link">Producto</a></li>
+                    <li><a href="#faq" class="nav-link">FAQ</a></li>
                 </ul>
             </nav>
 
-            <a href="#cta" class="btn btn-primary header-cta">Solicita nuestros servicios</a>
+            <a href="#demo" class="btn btn-primary nav-cta">Ver demo</a>
 
-            <button class="mobile-menu-toggle" aria-label="Abrir menú">
-                ☰
+            <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-mobile"
+                aria-label="Abrir menú">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+                    <path class="nav-toggle-open" d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" />
+                    <path class="nav-toggle-close" d="M5 5l12 12M17 5L5 17" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" />
+                </svg>
             </button>
         </div>
+
+        <nav class="nav-mobile" id="nav-mobile" aria-label="Menú móvil" hidden>
+            <ul>
+                <li><a href="#como-funciona" class="nav-link">Cómo funciona</a></li>
+                <li><a href="#producto" class="nav-link">Producto</a></li>
+                <li><a href="#faq" class="nav-link">FAQ</a></li>
+                <li><a href="#demo" class="btn btn-primary">Ver demo</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- ============================================
-       HERO SECTION
-       ============================================ -->
-    <section class="hero" id="hero">
-        <div class="hero-background">
-            <div class="hero-waves"></div>
-        </div>
+    <main>
 
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <svg class="badge-icon" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd"
-                            d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                            clip-rule="evenodd"></path>
-                    </svg>
-                    <span>Automatizamos de forma <span class="highlight">inteligente</span> para trabajar de forma <span
-                            class="highlight">inteligente</span></span>
+        <!-- ============ HERO ============ -->
+        <section class="hero" id="hero">
+            <div class="container hero-inner">
+                <div class="hero-copy">
+                    <p class="eyebrow">Automatiza tu inmobiliaria</p>
+                    <h1 class="hero-title">Tu inmobiliaria responde en <span class="hl-coral">4&nbsp;segundos</span>.<br>
+                        <span style="white-space: nowrap">A cualquier hora.</span></h1>
+                    <p class="hero-sub">Agentes de IA que atienden, cualifican y agendan visitas desde WhatsApp,
+                        Instagram y Web. Y un Panel de control donde ves cada lead, sin tocar una hoja de cálculo.</p>
+                    <div class="hero-actions">
+                        <a href="#demo" class="btn btn-primary btn-lg">Ver una demo de 20 minutos</a>
+                    </div>
                 </div>
 
-                <h1 class="hero-title">
-                    Automatiza, Escala y <span class="highlight">Gana</span>
-                </h1>
+                <!-- Elemento firma: la conversación que se escribe sola -->
+                <div class="demo" id="demo-panel" role="img"
+                    aria-label="Demostración: a las 23:04 un lead de Idealista escribe buscando un piso en Ruzafa. El agente de IA responde en segundos, descubre que quiere comprar con un presupuesto de hasta 250.000 euros y le propone un piso en la calle Cuba para verlo el jueves a las 18:00. Mientras hablan, la ficha del lead se rellena sola con el canal, el presupuesto y la visita, y el lead queda cualificado.">
+                    <!-- Cabecera tipo WhatsApp: el panel se lee como el chat real -->
+                    <div class="demo-top">
+                        <span class="wa-back" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                                <path d="M11 3.5L5.5 9L11 14.5" stroke="currentColor" stroke-width="1.8"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </span>
 
-                <p class="hero-description">
-                    Simplificamos operaciones complejas con soluciones de IA que trabajan por ti.
-                </p>
+                        <span class="wa-avatar" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <circle cx="12" cy="8.2" r="3.9" />
+                                <path d="M12 13.6c-4.2 0-6.9 2.4-7.6 5.3-.2.8.4 1.5 1.2 1.5h12.8c.8 0 1.4-.7 1.2-1.5-.7-2.9-3.4-5.3-7.6-5.3Z" />
+                            </svg>
+                        </span>
 
-                <div class="hero-cta">
-                    <a href="#cta" class="btn btn-primary">Solicita nuestros servicios</a>
+                        <span class="wa-id">
+                            <span class="wa-name">Nuevo lead · Idealista</span>
+                            <span class="wa-status"><i class="wa-dot"></i>en línea · 23:04</span>
+                        </span>
+
+                        <span class="wa-actions">
+                            <span class="wa-icon" aria-hidden="true">
+                                <svg width="19" height="19" viewBox="0 0 24 24" fill="none">
+                                    <rect x="2.5" y="6" width="12.5" height="12" rx="3" stroke="currentColor"
+                                        stroke-width="1.7" />
+                                    <path d="M15 11l4.6-2.9c.7-.4 1.6.1 1.6.9v6c0 .8-.9 1.3-1.6.9L15 13v-2Z"
+                                        fill="currentColor" />
+                                </svg>
+                            </span>
+                            <span class="wa-icon" aria-hidden="true">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                                    <path
+                                        d="M7.2 3.5c.6 0 1.1.4 1.3.9l1 2.7c.2.5 0 1.1-.4 1.4l-1.3 1a12.6 12.6 0 0 0 5.7 5.7l1-1.3c.3-.4.9-.6 1.4-.4l2.7 1c.5.2.9.7.9 1.3v2.6c0 .9-.8 1.6-1.7 1.5C10.1 19.3 4.7 13.9 3.6 5.2c-.1-.9.6-1.7 1.5-1.7h2.1Z"
+                                        fill="currentColor" />
+                                </svg>
+                            </span>
+                            <button type="button" class="demo-replay" id="demo-replay" title="Repetir la demostración"
+                                hidden>
+                                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M20 12a8 8 0 1 1-2.6-5.9" stroke="currentColor" stroke-width="1.9"
+                                        stroke-linecap="round" />
+                                    <path d="M20.5 3v4.2h-4.2" stroke="currentColor" stroke-width="1.9"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                <span class="sr-only">Repetir la demostración</span>
+                            </button>
+                        </span>
+                    </div>
+
+                    <div class="demo-chat" id="demo-chat" aria-hidden="true">
+                        <!-- data-field: el dato que el agente extrae de ese mensaje -->
+                        <div class="msg msg-in" data-delay="600" data-field="0">
+                            <p>Hola, busco un piso en Ruzafa.</p>
+                        </div>
+                        <div class="msg msg-out m-hide" data-delay="900" data-typing="800">
+                            <p>¡Hola! ¿Buscas comprar o alquilar?</p>
+                        </div>
+                        <div class="msg msg-in" data-delay="2600" data-field="1">
+                            <p>Comprar. Hasta 250.000.</p>
+                        </div>
+                        <div class="msg msg-out" data-delay="700" data-typing="900">
+                            <p>Perfecto, tengo uno en la calle Cuba que te encaja. ¿Te va bien verlo el jueves a las
+                                18:00?</p>
+                        </div>
+                        <div class="msg msg-in" data-delay="1600" data-field="2">
+                            <p>Sí, perfecto</p>
+                        </div>
+                        <div class="demo-status" data-delay="900">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                                <path d="M2 7.5L5.5 11L12 3.5" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            Visita agendada · Lead cualificado
+                        </div>
+                    </div>
+
+                    <!-- Ficha del lead: se rellena sola conforme llega cada dato -->
+                    <div class="demo-fields" id="demo-fields" aria-hidden="true">
+                        <div class="df">
+                            <span class="df-k">Canal</span>
+                            <span class="df-slot"><i class="df-dash">—</i><span class="df-v">Idealista</span></span>
+                        </div>
+                        <div class="df">
+                            <span class="df-k">Presupuesto</span>
+                            <span class="df-slot"><i class="df-dash">—</i><span class="df-v">250.000 €</span></span>
+                        </div>
+                        <div class="df">
+                            <span class="df-k">Visita</span>
+                            <span class="df-slot"><i class="df-dash">—</i><span class="df-v">Jue · 18:00</span></span>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ============================================
-       BENEFITS SECTION
-       ============================================ -->
-    <section class="section" id="beneficios">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-tag">RESULTADOS REALES</div>
-                <h2 class="section-title">Procesos más rápidos, simples y eficientes</h2>
-                <p class="section-description">
-                    Reduce la carga operativa y deja atrás las tareas repetitivas.
-                    Nuestras soluciones inteligentes optimizan cada proceso para que tu negocio avance con más
-                    eficiencia y precisión.
-                </p>
+        <!-- ============ DATOS ============ -->
+        <section class="stats" id="datos">
+            <h2 class="sr-only">El coste de responder tarde</h2>
+            <div class="container stats-inner">
+                <div class="stat" data-reveal>
+                    <span class="stat-num">21×</span>
+                    <span class="stat-label">Más probabilidades de cualificar un lead si respondes en menos de
+                        5&nbsp;minutos que si tardas 30.</span>
+                </div>
+                <div class="stat" data-reveal>
+                    <span class="stat-num">75%</span>
+                    <span class="stat-label">De los compradores solo entrevista a una agencia antes de
+                        decidirse.</span>
+                </div>
+                <div class="stat" data-reveal>
+                    <span class="stat-num">+15 h</span>
+                    <span class="stat-label">Tarda de media una agencia en responder a un lead nuevo.</span>
+                </div>
             </div>
+        </section>
 
-            <div class="benefits-grid">
-                <div class="card benefit-card fade-in">
-                    <div class="card-icon animated-icon-container">
-                        <!-- Icon: Automation/Gears (Animated) -->
-                        <svg class="animated-icon icon-hollow-gears" viewBox="0 0 64 64" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <g class="gear-group-1">
-                                <path
-                                    d="M32 6C33.6569 6 35 7.34315 35 9V11.09C36.6006 11.4599 38.1099 12.0673 39.4851 12.8727L41.1115 11.2464C42.283 10.0748 44.1825 10.0748 45.3541 11.2464L48.7536 14.6459C49.9252 15.8175 49.9252 17.717 48.7536 18.8885L47.1273 20.5149C47.9327 21.8901 48.5401 23.3994 48.91 25H51C52.6569 25 54 26.3431 54 28V36C54 37.6569 52.6569 39 51 39H48.91C48.5401 40.6006 47.9327 42.1099 47.1273 43.4851L48.7536 45.1115C49.9252 46.283 49.9252 48.1825 48.7536 49.3541L45.3541 52.7536C44.1825 53.9252 42.283 53.9252 41.1115 52.7536L39.4851 51.1273C38.1099 51.9327 36.6006 52.5401 35 52.91V55C35 56.6569 33.6569 58 32 58H24C22.3431 58 21 56.6569 21 55V52.91C19.3994 52.5401 17.8901 51.9327 16.5149 51.1273L14.8885 52.7536C13.717 53.9252 11.8175 53.9252 10.6459 52.7536L7.24645 49.3541C6.07487 48.1825 6.07487 46.283 7.24645 45.1115L8.87274 43.4851C8.06734 42.1099 7.45995 40.6006 7.09001 39H5C3.34315 39 2 37.6569 2 36V28C2 26.3431 3.34315 25 5 25H7.09001C7.45995 23.3994 8.06734 21.8901 8.87274 20.5149L7.24645 18.8885C6.07487 17.717 6.07487 15.8175 7.24645 14.6459L10.6459 11.2464C11.8175 10.0748 13.717 10.0748 14.8885 11.2464L16.5149 12.8727C17.8901 12.0673 19.3994 11.4599 21 11.09V9C21 7.34315 22.3431 6 24 6H32Z"
-                                    stroke="var(--color-primary)" stroke-width="2" stroke-linejoin="round" />
-                                <circle cx="28" cy="32" r="8" stroke="var(--color-primary)" stroke-width="2" />
-                            </g>
-                            <g class="gear-group-2">
-                                <path
-                                    d="M48 38C48.5523 38 49 38.4477 49 39V40.054C49.7712 40.2312 50.4996 40.5233 51.1643 40.9126L52.0962 39.9808C52.4867 39.5902 53.1199 39.5902 53.5104 39.9808L55.0192 41.4896C55.4098 41.8801 55.4098 42.5133 55.0192 42.9038L54.0874 43.8357C54.4767 44.5004 54.7688 45.2288 54.946 46H56C56.5523 46 57 46.4477 57 47V49C57 49.5523 56.5523 50 56 50H54.946C54.7688 50.7712 54.4767 51.5 54.0874 52.1643L55.0192 53.0962C55.4098 53.4867 55.4098 54.1199 55.0192 54.5104L53.5104 56.0192C53.1199 56.4098 52.4867 56.4098 52.0962 56.0192L51.1643 55.0874C50.4996 55.4767 49.7712 55.7688 49 55.946V57C49 57.5523 48.5523 58 48 58H46C45.4477 58 45 57.5523 45 57V55.946C44.2288 55.7688 43.5004 55.4767 42.8357 55.0874L41.9038 56.0192C41.5133 56.4098 40.8801 56.4098 40.4896 56.0192L38.9808 54.5104C38.5902 54.1199 38.5902 53.4867 38.9808 53.0962L39.9126 52.1643C39.5233 51.5 39.2312 50.7712 39.054 50H38C37.4477 50 37 49.5523 37 49V47C37 46.4477 37.4477 46 38 46H39.054C39.2312 45.2288 39.5233 44.5004 39.9126 43.8357L38.9808 42.9038C38.5902 42.5133 38.5902 41.8801 38.9808 41.4896L40.4896 39.9808C40.8801 39.5902 41.5133 39.5902 41.9038 39.9808L42.8357 40.9126C43.5004 40.5233 44.2288 40.2312 45 40.054V39C45 38.4477 45.4477 38 46 38H48Z"
-                                    stroke="var(--color-secondary)" stroke-width="2" stroke-linejoin="round" />
-                            </g>
+        <!-- ============ CÓMO FUNCIONA ============ -->
+        <section class="how section" id="como-funciona">
+            <div class="container">
+                <header class="section-head" data-reveal>
+                    <p class="eyebrow">Cómo funciona</p>
+                    <h2>Del primer mensaje a la visita agendada</h2>
+                </header>
+
+                <div class="how-grid">
+                    <div class="how-wrap">
+                        <svg class="how-line" viewBox="0 0 2 100" preserveAspectRatio="none" aria-hidden="true">
+                            <path class="how-track" d="M1 0 V100" pathLength="100" />
+                            <path id="how-path" d="M1 0 V100" pathLength="100" />
                         </svg>
-                    </div>
-                    <h3 class="card-title">Menos tareas manuales, foco en lo importante</h3>
-                    <p class="card-description">
-                        La automatización se encarga de los procesos repetitivos, desde la atención al cliente hasta
-                        la
-                        gestión documental. Tu equipo gana tiempo para centrarse en decisiones y tareas de mayor
-                        valor.
-                    </p>
-                </div>
+                        <span class="how-dot" aria-hidden="true"></span>
 
-                <div class="card benefit-card fade-in">
-                    <div class="card-icon animated-icon-container">
-                        <!-- Icon: Speed/Rocket (Animated) -->
-                        <svg class="animated-icon icon-rocket" viewBox="0 0 64 64" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path class="rocket-body"
-                                d="M32 4L42 22C42 22 46 32 46 40C46 52 38 58 32 58C26 58 18 52 18 40C18 32 22 22 22 22L32 4Z"
-                                stroke="var(--color-primary)" stroke-width="2" stroke-linejoin="round" />
-                            <path class="rocket-fin-left" d="M18 40L8 52H18" stroke="var(--color-primary)"
-                                stroke-width="2" stroke-linejoin="round" />
-                            <path class="rocket-fin-right" d="M46 40L56 52H46" stroke="var(--color-primary)"
-                                stroke-width="2" stroke-linejoin="round" />
-                            <path class="rocket-window"
-                                d="M32 32C34.2091 32 36 30.2091 36 28C36 25.7909 34.2091 24 32 24C29.7909 24 28 25.7909 28 28C28 30.2091 29.7909 32 32 32Z"
-                                fill="var(--color-secondary)" />
-                            <g class="rocket-flame">
-                                <path d="M28 58L32 63L36 58" stroke="var(--color-accent)" stroke-width="2"
-                                    stroke-linejoin="round" />
-                            </g>
-                            <g class="speed-lines">
-                                <path d="M10 10 L10 20" stroke="var(--color-text-muted)" stroke-width="1"
-                                    stroke-linecap="round" />
-                                <path d="M6 25 L6 35" stroke="var(--color-text-muted)" stroke-width="1"
-                                    stroke-linecap="round" />
-                            </g>
-                        </svg>
+                        <ol class="how-steps">
+                            <li class="how-step" data-panel-state="a">
+                                <span class="how-num">01</span>
+                                <div class="how-body">
+                                    <h3>Entra el lead</h3>
+                                    <p>Desde Idealista, Fotocasa, WhatsApp, Instagram o tu web. A la hora que sea.</p>
+                                    <ul class="badge-row" aria-label="Canales">
+                                        <li class="badge">Idealista</li>
+                                        <li class="badge">Fotocasa</li>
+                                        <li class="badge">Habitaclia</li>
+                                        <li class="badge">WhatsApp</li>
+                                        <li class="badge">Instagram</li>
+                                        <li class="badge">Web</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="how-step" data-panel-state="b">
+                                <span class="how-num">02</span>
+                                <div class="how-body">
+                                    <h3>El agente conversa y cualifica</h3>
+                                    <p>Pregunta por presupuesto, financiación, zona y plazos. Descarta al curioso y
+                                        detecta al comprador.</p>
+                                </div>
+                            </li>
+                            <li class="how-step" data-panel-state="c">
+                                <span class="how-num">03</span>
+                                <div class="how-body">
+                                    <h3>Cae en tu pipeline</h3>
+                                    <p>Ya cualificado, con la visita agendada y todo el histórico. Tu equipo solo abre
+                                        la ficha.</p>
+                                </div>
+                            </li>
+                        </ol>
                     </div>
-                    <h3 class="card-title">Velocidad que impulsa tu operación</h3>
-                    <p class="card-description">
-                        Respuestas inmediatas y decisiones en tiempo real. Los flujos automatizados eliminan
-                        cuellos de
-                        botella y mantienen tus procesos activos las 24 horas, todos los días.
-                    </p>
-                </div>
 
-                <div class="card benefit-card fade-in">
-                    <div class="card-icon animated-icon-container">
-                        <!-- Icon: Precision/Target (Animated) -->
-                        <svg class="animated-icon icon-precision" viewBox="0 0 64 64" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <circle class="precision-outer" cx="32" cy="32" r="28" stroke="var(--color-primary)"
-                                stroke-width="2" />
-                            <circle class="precision-middle" cx="32" cy="32" r="18" stroke="var(--color-secondary)"
-                                stroke-width="2" stroke-dasharray="10 5" />
-                            <circle class="precision-center" cx="32" cy="32" r="6" fill="var(--color-accent)" />
-                            <path class="precision-crosshair-v" d="M32 4V60" stroke="var(--color-primary)"
-                                stroke-width="1" stroke-opacity="0.5" />
-                            <path class="precision-crosshair-h" d="M4 32H60" stroke="var(--color-primary)"
-                                stroke-width="1" stroke-opacity="0.5" />
-                            <path class="check-mark" d="M44 20L28 44L20 36" stroke="var(--color-text-primary)"
-                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
+                    <!-- Panel sticky: el mismo lead del hero y del CRM, avanzando
+                         de estado conforme el paso correspondiente llega al centro. -->
+                    <div class="how-panel-col">
+                        <figure class="how-panel" id="how-panel" data-state="a">
+                            <figcaption class="sr-only">El mismo lead, paso a paso: entra a las 23:04 desde Idealista
+                                buscando un piso en Ruzafa, el agente lo cualifica (presupuesto de hasta 250.000
+                                €, financiación preaprobada, zona Ruzafa, plazo menor de tres meses) y acaba en la
+                                columna «Visita agendada» del pipeline con la visita del jueves a las 18:00.</figcaption>
+
+                            <div class="hp-top">
+                                <span class="hp-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                            </div>
+
+                            <div class="hp-stack">
+                                <!-- A · Entra el lead -->
+                                <div class="hp-state hp-state-a">
+                                    <div class="hp-notif">
+                                        <div class="hp-notif-head">
+                                            <span class="badge">Idealista</span>
+                                            <span class="hp-time">23:04</span>
+                                        </div>
+                                        <p class="hp-msg">Hola, busco un piso en Ruzafa.</p>
+                                    </div>
+                                </div>
+
+                                <!-- B · Conversa y cualifica -->
+                                <div class="hp-state hp-state-b">
+                                    <div class="hp-ficha">
+                                        <span class="mk-label">Cualificando</span>
+                                        <div class="hp-row" style="--i:0"><span class="chk-k">Presupuesto</span><span
+                                                class="chk-v">≤ 250.000 €</span></div>
+                                        <div class="hp-row" style="--i:1"><span class="chk-k">Financiación</span><span
+                                                class="chk-v">Preaprobada</span></div>
+                                        <div class="hp-row" style="--i:2"><span class="chk-k">Zona</span><span
+                                                class="chk-v">Ruzafa</span></div>
+                                        <div class="hp-row" style="--i:3"><span class="chk-k">Plazos</span><span
+                                                class="chk-v">&lt; 3 meses</span></div>
+                                    </div>
+                                </div>
+
+                                <!-- C · Cae en tu pipeline -->
+                                <div class="hp-state hp-state-c">
+                                    <div class="hp-col">
+                                        <span class="mk-label">Visita agendada</span>
+                                        <div class="mk-card mk-card-hot">
+                                            <strong>Piso en Ruzafa</strong>
+                                            <span>jueves 18:00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </figure>
                     </div>
-                    <h3 class="card-title">Procesos más precisos</h3>
-                    <p class="card-description">
-                        La automatización reduce errores, retrabajos y variaciones. Obtén decisiones más
-                        consistentes y
-                        una mayor calidad en cada paso del proceso.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================
-       SERVICES SECTION
-       ============================================ -->
-    <section class="section" id="servicios">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-tag">SOLUCIONES</div>
-                <h2 class="section-title">Impulsamos tu operación con Inteligencia Artificial</h2>
-                <p class="section-description">
-                    Generación de oportunidades & gestión operativa, aplicamos IA para optimizar cada etapa de tu flujo
-                    de trabajo de forma eficiente y escalable.
-                </p>
-            </div>
-
-            <div class="services-grid">
-                <div class="card service-card fade-in">
-                    <div class="service-card-visual">
-                        <img src="assets/images/service_leads.jpg" alt="Automatización de Leads">
-                    </div>
-                    <h3 class="card-title">Captación y conversión automatizada</h3>
-                    <p class="card-description">
-                        Automatiza la cualificación de leads, los seguimientos y la gestión de citas con agentes de IA.
-                        Aumenta la conversión y reduce el esfuerzo manual en todo el proceso comercial.
-                    </p>
-                </div>
-
-                <div class="card service-card fade-in">
-                    <div class="service-card-visual">
-                        <img src="assets/images/service_rag.jpg" alt="Automatización de Base de Conocimientos">
-                    </div>
-                    <h3 class="card-title">Respuestas precisas, en tiempo real</h3>
-                    <p class="card-description">
-                        Implementa agentes RAG que acceden directamente a tu conocimiento interno —documentos, FAQs o
-                        SOPs— para ofrecer respuestas inmediatas, fiables y alineadas con tu información real.
-                    </p>
-                </div>
-
-                <div class="card service-card fade-in">
-                    <div class="service-card-visual">
-                        <img src="assets/images/service_ops.jpg" alt="Automatización de Procesos Operativos">
-                    </div>
-                    <h3 class="card-title">Operaciones inteligentes y sin fricción</h3>
-                    <p class="card-description">
-                        Automatiza flujos internos como gestión documental, validaciones, traspaso de datos y tareas
-                        administrativas. La IA se integra con tus herramientas para ejecutar procesos de forma continua,
-                        reducir errores y escalar la operación sin añadir complejidad.
-                    </p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ============================================
-       PROCESS SECTION
-       ============================================ -->
-    <section class="section" id="proceso">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-tag">PROCESO</div>
-                <h2 class="section-title">Un Método Probado para Resultados Garantizados</h2>
-                <p class="section-description">
-                    Nuestro enfoque simplifica la automatización para que cualquier empresa pueda implementarla sin
-                    complicaciones.
-                </p>
-            </div>
+        <!-- ============ PRODUCTO (bento) ============ -->
+        <section class="product section" id="producto">
+            <div class="container">
+                <header class="section-head" data-reveal>
+                    <p class="eyebrow">Producto</p>
+                    <h2>El agente atiende. El CRM lo ordena.</h2>
+                </header>
 
-            <div class="process-grid">
-                <div class="process-step fade-in">
-                    <div class="step-icon">
-                        <svg fill="currentColor" viewBox="0 0 20 20" width="30" height="30">
-                            <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
-                            <path fill-rule="evenodd"
-                                d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                    </div>
-                    <div class="step-content">
-                        <h3>Estudiamos</h3>
-                        <p class="card-description">
-                            Analizamos tu negocio para detectar oportunidades reales de automatización.
+                <div class="bento" data-reveal-group>
+                    <article class="cell cell-lg cell--wa">
+                        <div class="cell-ui mini-chat" aria-hidden="true">
+                            <span class="badge badge-live">WhatsApp<i class="live-dot" aria-hidden="true"></i></span>
+                            <div class="mc-msg mc-in">¿Se puede visitar este sábado?<span class="mc-time">23:12</span>
+                            </div>
+                            <div class="mc-msg mc-out">Claro. ¿Mejor a las 10:00 o a las 12:30?<span
+                                    class="mc-time">23:12</span></div>
+                        </div>
+                        <h3>Agente de captación 24/7</h3>
+                        <p>Contesta en segundos, en cualquier canal, incluso a las 23:00.</p>
+                    </article>
+
+                    <article class="cell cell-lg cell--coral">
+                        <div class="cell-ui mini-kanban" aria-hidden="true">
+                            <div class="mk-col">
+                                <span class="mk-label">Nuevo</span>
+                                <div class="mk-card"><strong>Jordi Serra</strong><span>Loft en el Born</span></div>
+                                <div class="mk-card"><strong>Aitana Roig</strong><span>Piso en Benimaclet</span></div>
+                            </div>
+                            <div class="mk-col">
+                                <span class="mk-label">Cualificado</span>
+                                <div class="mk-card"><strong>Andrés Quintana</strong><span>Ático en Chamberí</span>
+                                </div>
+                            </div>
+                            <div class="mk-col">
+                                <span class="mk-label">Visita agendada</span>
+                                <div class="mk-card mk-card-hot"><strong>Marta Ferrer</strong><span>Piso en
+                                        Ruzafa</span></div>
+                            </div>
+                        </div>
+                        <h3>Tu pipeline, siempre al día</h3>
+                        <p>Cada lead en su columna. Sin arrastrar tarjetas a mano.</p>
+                    </article>
+
+                    <article class="cell cell--sky">
+                        <div class="cell-ui mini-checks" aria-hidden="true">
+                            <div class="chk"><span class="chk-k">Presupuesto</span><span class="chk-v">≤ 250.000
+                                    €</span></div>
+                            <div class="chk"><span class="chk-k">Financiación</span><span class="chk-v">Preaprobada</span>
+                            </div>
+                            <div class="chk"><span class="chk-k">Zona</span><span class="chk-v">Ruzafa</span></div>
+                            <div class="chk"><span class="chk-k">Plazos</span><span class="chk-v">&lt; 3 meses</span>
+                            </div>
+                        </div>
+                        <h3>Cualificación automática</h3>
+                        <p>Presupuesto, financiación, zona, plazos. Antes de que tu comercial coja el teléfono.</p>
+                    </article>
+
+                    <article class="cell cell--violet">
+                        <div class="cell-ui mini-agenda" aria-hidden="true">
+                            <div class="ag-row">
+                                <span class="ag-day">Jue<br><strong>18:00</strong></span>
+                                <div class="ag-info"><strong>Visita · Piso en Ruzafa</strong><span>Recordatorio enviado
+                                        al lead y al comercial</span></div>
+                            </div>
+                        </div>
+                        <h3>Agenda de visitas</h3>
+                        <p>Sincronizada con el calendario del equipo. Con recordatorio automático.</p>
+                    </article>
+
+                    <article class="cell cell--amber">
+                        <div class="cell-ui mini-qa" aria-hidden="true">
+                            <p class="qa-q">«¿Tiene terraza?»</p>
+                            <p class="qa-a">Sí, 12 m² con orientación sur.</p>
+                            <span class="chip-mono">Piso en Ruzafa</span>
+                        </div>
+                        <h3>Respuestas sobre tu cartera</h3>
+                        <p>El agente conoce tus propiedades, tus notas simples y tus condiciones. No se inventa nada.
                         </p>
-                    </div>
-                </div>
-
-                <div class="process-step fade-in">
-                    <div class="step-icon">
-                        <svg fill="currentColor" viewBox="0 0 20 20" width="30" height="30">
-                            <path fill-rule="evenodd"
-                                d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                    </div>
-                    <div class="step-content">
-                        <h3>Aplicamos</h3>
-                        <p class="card-description">
-                            Desarrollamos e implementamos soluciones con IA adaptadas a tus procesos.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="process-step fade-in">
-                    <div class="step-icon">
-                        <svg fill="currentColor" viewBox="0 0 20 20" width="30" height="30">
-                            <path fill-rule="evenodd"
-                                d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                    </div>
-                    <div class="step-content">
-                        <h3>Optimizamos</h3>
-                        <p class="card-description">
-                            Medimos resultados y refinamos cada flujo para alcanzar la máxima eficiencia.
-                        </p>
-                    </div>
+                    </article>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ============================================
-       CTA SECTION
-       ============================================ -->
-    <section class="cta-section" id="cta">
-        <div class="container">
-            <div class="cta-content">
-                <h2 class="section-title">Haz Crecer tu Negocio Hoy</h2>
-                <p class="section-description">
-                    Descubre cómo nuestras soluciones pueden optimizar tu operativa y permitirte centrarte en lo
-                    realmente importante.
-                </p>
+        <!-- ============ PRUEBA ============ -->
+        <!-- TESTIMONIO: descomentar el contenedor cuando esté la cita de cliente real
+             (quitar el style="display: none" de la sección y descomentar el <figure>). -->
+        <section class="proof section" id="prueba" style="display: none">
+            <div class="container proof-inner" data-reveal>
+                <h2 class="sr-only">Clientes</h2>
+                <!-- Nunca inventar testimonios: sustituir por una cita literal de un cliente real.
+                <figure class="quote">
+                    <blockquote>
+                        <p>«[TESTIMONIO PENDIENTE — cita literal de un cliente real: qué cambió desde que el agente
+                            responde por su equipo.]»</p>
+                    </blockquote>
+                    <figcaption>[Nombre] · [Cargo] · [Agencia]</figcaption>
+                </figure>
+                -->
+                <!-- Fila de logos de clientes: descomentar cuando existan logos reales.
+                <ul class="logo-row">
+                    <li><img src="assets/images/clientes/logo1.png" alt="" width="120" height="40" loading="lazy"></li>
+                </ul>
+                -->
+            </div>
+        </section>
 
-                <div class="cta-features">
-                    <div class="cta-feature">
-                        <svg class="cta-feature-icon" fill="currentColor" viewBox="0 0 20 20" width="24" height="24">
-                            <path fill-rule="evenodd"
-                                d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                        <span>Expertos en Automatización</span>
-                    </div>
+        <!-- ============ FAQ ============ -->
+        <section class="faq section" id="faq">
+            <div class="container faq-inner">
+                <header class="section-head" data-reveal>
+                    <p class="eyebrow">FAQ</p>
+                    <h2>Preguntas frecuentes</h2>
+                </header>
 
-                    <div class="cta-feature">
-                        <svg class="cta-feature-icon" fill="currentColor" viewBox="0 0 20 20" width="24" height="24">
-                            <path
-                                d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z">
-                            </path>
-                        </svg>
-                        <span>Integraciones Personalizadas</span>
-                    </div>
+                <div class="faq-list" data-reveal-group>
+                    <details class="faq-item">
+                        <summary>¿Se integra con Idealista y Fotocasa?</summary>
+                        <!-- REVISAR: mecanismo exacto de conexión con cada portal -->
+                        <p>Sí. Cuando un lead te escribe desde el portal, el agente recibe el aviso y le responde al
+                            momento, sin que nadie tenga que entrar al panel de Idealista o Fotocasa.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>¿El cliente se da cuenta de que habla con una IA?</summary>
+                        <p>El agente se presenta como asistente de tu inmobiliaria y escribe con naturalidad. No finge
+                            ser humano: si alguien lo pregunta, lo dice. En la práctica, el cliente valora más recibir
+                            respuesta al momento que quién teclea.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>¿Qué pasa con los datos de mis leads y el RGPD?</summary>
+                        <!-- REVISAR: ubicación de servidores y acuerdo de encargado de tratamiento -->
+                        <p>Tus leads son tuyos. Se tratan conforme al RGPD, con base legal, información al interesado y
+                            derecho de supresión, y no se comparten con terceros ni se usan para otros clientes.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>¿Cuánto tarda la implantación?</summary>
+                        <!-- REVISAR: plazo real con los últimos proyectos -->
+                        <p>Lo habitual es tener el agente respondiendo en unas dos semanas: cargamos tu cartera,
+                            definimos tono y respuestas contigo y lo probamos en privado antes de activarlo.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>¿Necesito cambiar mi CRM actual?</summary>
+                        <!-- REVISAR: integraciones disponibles con CRMs de terceros -->
+                        <p>No. El CRM de LLorizzMind viene incluido y puedes usarlo desde el primer día, pero si tu
+                            equipo ya trabaja con otro, estudiamos cómo pasarle los leads cualificados.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>¿Y si el agente no sabe responder algo?</summary>
+                        <p>Lo reconoce y no se lo inventa. Avisa a alguien de tu equipo y le pasa la conversación con
+                            todo el contexto para que la retome donde se quedó.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>¿Cuánto cuesta?</summary>
+                        <!-- REVISAR: ajustar cifras -->
+                        <p>Depende del volumen de leads que manejes. El modelo tiene dos partes: una implantación
+                            inicial, donde configuramos el agente y el CRM con tu cartera y tu forma de trabajar, y una
+                            cuota mensual según el volumen de leads que atienda. En la demo te damos un precio cerrado
+                            para tu caso.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
 
-                    <div class="cta-feature">
-                        <svg class="cta-feature-icon" fill="currentColor" viewBox="0 0 20 20" width="24" height="24">
-                            <path fill-rule="evenodd"
-                                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-2 0c0 .993-.241 1.929-.668 2.754l-1.524-1.525a3.997 3.997 0 00.078-2.183l1.562-1.562C15.802 8.249 16 9.1 16 10zm-5.165 3.913l1.58 1.58A5.98 5.98 0 0110 16a5.976 5.976 0 01-2.516-.552l1.562-1.562a4.006 4.006 0 001.789.027zm-4.677-2.796a4.002 4.002 0 01-.041-2.08l-.08.08-1.53-1.533A5.98 5.98 0 004 10c0 .954.223 1.856.619 2.657l1.539-1.54zm1.088-6.45A5.974 5.974 0 0110 4c.954 0 1.856.223 2.657.619l-1.54 1.54a4.002 4.002 0 00-2.346.033L7.246 4.668zM12 10a2 2 0 11-4 0 2 2 0 014 0z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                        <span>Soporte y Asesoramiento</span>
-                    </div>
+        <!-- ============ CTA FINAL ============ -->
+        <section class="cta" id="demo">
+            <div class="container cta-inner">
+                <div class="cta-copy" data-reveal>
+                    <h2>Te enseño cómo funciona con tus propios leads.</h2>
+                    <p>Una videollamada de 20 minutos. Traes un par de leads reales y ves cómo los atiende el agente y
+                        cómo quedan en tu CRM.</p>
                 </div>
 
+                <div class="form-panel" id="form-panel" data-reveal>
+                    <form class="form" id="form-demo" action="https://formsubmit.co/montero@llorizzmind.com" method="POST"
+                        novalidate>
+                        <input type="hidden" name="_subject" value="Nueva solicitud de demo — llorizzmind.com">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="text" name="_honey" class="sr-only" tabindex="-1" autocomplete="off"
+                            aria-hidden="true">
+
+                        <div class="field">
+                            <label for="f-nombre">Nombre</label>
+                            <input type="text" id="f-nombre" name="nombre" autocomplete="name">
+                            <p class="field-error" id="err-nombre" hidden></p>
+                        </div>
+
+                        <div class="field">
+                            <label for="f-inmobiliaria">Inmobiliaria</label>
+                            <input type="text" id="f-inmobiliaria" name="inmobiliaria" autocomplete="organization">
+                            <p class="field-error" id="err-inmobiliaria" hidden></p>
+                        </div>
+
+                        <div class="field field-half">
+                            <label for="f-email">Email</label>
+                            <input type="email" id="f-email" name="email" autocomplete="email" inputmode="email">
+                            <p class="field-error" id="err-email" hidden></p>
+                        </div>
+
+                        <div class="field field-half">
+                            <label for="f-whatsapp">WhatsApp</label>
+                            <input type="tel" id="f-whatsapp" name="whatsapp" autocomplete="tel" inputmode="tel"
+                                placeholder="+34 600 000 000">
+                            <p class="field-error" id="err-whatsapp" hidden></p>
+                        </div>
+
+                        <div class="field">
+                            <label for="f-leads">¿Cuántos leads recibes al mes?</label>
+                            <select id="f-leads" name="leads_mes">
+                                <option value="" selected>Elige un rango</option>
+                                <option value="Menos de 50">Menos de 50</option>
+                                <option value="Entre 50 y 150">Entre 50 y 150</option>
+                                <option value="Entre 150 y 500">Entre 150 y 500</option>
+                                <option value="Más de 500">Más de 500</option>
+                            </select>
+                            <p class="field-error" id="err-leads" hidden></p>
+                        </div>
+
+                        <div class="field">
+                            <label for="f-mensaje">Mensaje <span class="label-opt">(opcional)</span></label>
+                            <textarea id="f-mensaje" name="mensaje" rows="3"
+                                placeholder="Cuéntanos qué te gustaría resolver"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-lg form-submit" id="form-submit">Reservar
+                            demo</button>
+
+                        <p class="form-note">Al enviar aceptas la <a href="privacidad.html">política de
+                                privacidad</a>.</p>
+                    </form>
+
+                    <div class="form-result" aria-live="polite"></div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- ============================================
-       CONTACT FORM SECTION
-       ============================================ -->
-    <section class="form-section" id="contacto">
-        <div class="container">
-            <div class="form-container">
-                <form class="contact-form" action="https://formsubmit.co/llorizzmon@gmail.com" method="POST">
-                    <!-- Configuración de FormSubmit -->
-                    <input type="hidden" name="_subject" value="Nueva solicitud desde LLorizzMind">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_template" value="table">
-
-                    <div class="form-group">
-                        <label for="nombre">Nombre</label>
-                        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="empresa">Empresa</label>
-                        <input type="text" id="empresa" name="empresa" placeholder="Nombre de tu empresa o proyecto"
-                            required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="Tu correo electrónico de contacto"
-                            required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="presupuesto">Presupuesto</label>
-                        <select id="presupuesto" name="presupuesto" required>
-                            <option value="" disabled selected>Elige tu rango de inversión...</option>
-                            <option value="500-1500€ Principiante">500-1500€ Principiante</option>
-                            <option value="1500-3000€ Medio">1500-3000€ Medio</option>
-                            <option value="3000-5000€ Experto">3000-5000€ Experto</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="descripcion">Cuéntame más sobre tu idea</label>
-                        <textarea id="descripcion" name="descripcion" rows="5"
-                            placeholder="Comparte algunos detalles sobre lo que necesitas. Cuanto más sepamos, mejor podremos ayudarte."
-                            required></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary form-submit">ENVIAR SOLICITUD</button>
-                </form>
-
-                <p class="form-footer-text">¿Necesitas ayuda? Escríbenos</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================
-       FOOTER
-       ============================================ -->
+    <!-- ============ FOOTER ============ -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="logo footer-logo">
-                    <img src="assets/images/logo blanco copia.png" alt="LLorizzMind Logo" class="logo-icon">
-                    <span class="logo-text">LLorizzMind</span>
-                </div>
-                <p class="footer-text">
-                    © 2026 LLorizzMind. Automatiza, escala y gana con Inteligencia Artificial.
-                </p>
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <img src="assets/images/logo-blanco.png" alt="LLorizzMind" width="94" height="45" loading="lazy">
+                <p>Agentes de IA y CRM para inmobiliarias.</p>
             </div>
+            <nav class="footer-col" aria-label="Secciones">
+                <h3 class="footer-title">Secciones</h3>
+                <ul>
+                    <li><a href="#como-funciona">Cómo funciona</a></li>
+                    <li><a href="#producto">Producto</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#demo">Ver demo</a></li>
+                </ul>
+            </nav>
+            <div class="footer-col">
+                <h3 class="footer-title">Legal y contacto</h3>
+                <ul>
+                    <li><a href="privacidad.html">Política de privacidad</a></li>
+                    <li><a href="terminos.html">Términos del servicio</a></li>
+                    <li><a href="mailto:montero@llorizzmind.com">montero@llorizzmind.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>© 2026 LLorizzMind</p>
         </div>
     </footer>
 
