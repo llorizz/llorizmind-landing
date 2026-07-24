@@ -334,8 +334,10 @@ $$('.faq-item').forEach((item) => {
 /* ---------- Formulario: validación inline + envío ---------- */
 
 const form = $('#form-demo');
+const formPanel = $('#form-panel');
 const formResult = $('.form-result');
 const submitBtn = $('#form-submit');
+let resetTimer;
 
 const FIELDS = {
     nombre: {
@@ -415,21 +417,59 @@ function escapeHtml(str) {
     }[c]));
 }
 
+function clearFieldErrors() {
+    Object.keys(FIELDS).forEach((name) => {
+        const input = document.getElementById(FIELDS[name].input);
+        const errorEl = document.getElementById(FIELDS[name].error);
+        errorEl.hidden = true;
+        input.removeAttribute('aria-invalid');
+        input.removeAttribute('aria-describedby');
+    });
+}
+
 function showSuccess(nombre) {
-    form.hidden = true;
     const primerNombre = nombre ? escapeHtml(nombre.trim().split(/\s+/)[0]) : '';
+
+    // Reinicia los campos y limpia validaciones previas
+    form.reset();
+    formAttempted = false;
+    clearFieldErrors();
+
+    // Botón en estado "enviado" + borde del formulario en verde
+    submitBtn.textContent = 'Enviado ✓';
+    submitBtn.classList.add('sent');
+    submitBtn.disabled = true;
+    formPanel.classList.add('sent');
+
     formResult.innerHTML =
         '<div class="form-result-ok">' +
         '<h3>Recibido' + (primerNombre ? ', ' + primerNombre : '') + '.</h3>' +
         '<p>Te escribimos por WhatsApp en menos de 24 horas para confirmar día y hora de la demo.</p>' +
-        '<p>Si quieres adelantar trabajo, ten a mano un par de leads recientes: la demo se hace con ellos.</p>' +
         '</div>';
+
+    // Rehabilita el formulario para poder enviar otra solicitud
+    clearTimeout(resetTimer);
+    resetTimer = setTimeout(resetFormState, 6000);
+}
+
+function resetFormState() {
+    clearTimeout(resetTimer);
+    submitBtn.textContent = 'Reservar demo';
+    submitBtn.classList.remove('sent');
+    submitBtn.disabled = false;
+    formPanel.classList.remove('sent');
+    formResult.innerHTML = '';
 }
 
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
     formAttempted = true;
     formResult.innerHTML = '';
+
+    // Si venimos de un envío anterior, deja el formulario limpio antes de validar
+    clearTimeout(resetTimer);
+    submitBtn.classList.remove('sent');
+    formPanel.classList.remove('sent');
 
     if (!validateForm()) return;
 
@@ -439,32 +479,57 @@ form.addEventListener('submit', async (e) => {
         return;
     }
 
+    const nombre = form.elements.nombre.value;
     submitBtn.disabled = true;
     submitBtn.textContent = 'Enviando…';
 
+    // Aborta si el servidor no responde para no quedarnos en "Enviando…" para siempre
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 15000);
+
     try {
         const data = new FormData(form);
-        let response;
+        data.delete('_honey');
+
+        let sent = false;
+        // 1º intento: webhook de n8n (leads directos al pipeline).
+        // Solo acepta CORS desde https://llorizzmind.com, así que fuera de
+        // producción falla; en ese caso caemos a FormSubmit (email).
         if (FORM_ENDPOINT) {
-            data.delete('_honey');
-            response = await fetch(FORM_ENDPOINT, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(Object.fromEntries(data))
-            });
-        } else {
-            response = await fetch(FORMSUBMIT_AJAX, {
+            try {
+                const response = await fetch(FORM_ENDPOINT, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(Object.fromEntries(data)),
+                    signal: controller.signal
+                });
+                if (!response.ok) throw new Error('send-failed');
+                sent = true;
+            } catch (primaryErr) {
+                if (primaryErr.name === 'AbortError') throw primaryErr;
+            }
+        }
+
+        // 2º intento / fallback universal: FormSubmit (CORS abierto).
+        if (!sent) {
+            const response = await fetch(FORMSUBMIT_AJAX, {
                 method: 'POST',
                 headers: { Accept: 'application/json' },
-                body: data
+                body: data,
+                signal: controller.signal
             });
+            if (!response.ok) throw new Error('send-failed');
         }
-        if (!response.ok) throw new Error('send-failed');
-        showSuccess(form.elements.nombre.value);
+
+        showSuccess(nombre);
     } catch (err) {
         submitBtn.disabled = false;
         submitBtn.textContent = 'Reservar demo';
+        submitBtn.classList.remove('sent');
+        formPanel.classList.remove('sent');
         formResult.innerHTML =
             '<p class="form-result-err">No se ha podido enviar. Prueba otra vez o escríbenos a montero@llorizzmind.com.</p>';
+    } finally {
+        clearTimeout(timeout);
     }
 });

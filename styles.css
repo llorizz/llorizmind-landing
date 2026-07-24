@@ -73,6 +73,7 @@
     --muted: #64748B;
     --hairline: #E2E8F0;
     --whatsapp: #25D366;
+    --success: #16A34A;
 
     /* Derivado: coral oscurecido SOLO para texto pequeño sobre fondo
        claro (mensajes de error) — el coral de marca no llega a AA 4.5 */
@@ -1690,6 +1691,7 @@ h3 {
     border: 1px solid var(--hairline);
     border-radius: 12px;
     padding: 32px;
+    transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
 }
 
 .form {
@@ -1760,6 +1762,26 @@ h3 {
     grid-column: 1 / -1;
     justify-self: start;
     margin-top: 6px;
+}
+
+.form-submit:disabled {
+    cursor: default;
+}
+
+/* Estado "enviado": borde del formulario en verde + botón de confirmación */
+.form-panel.sent {
+    border-color: var(--success);
+    box-shadow: 0 0 0 1px var(--success);
+}
+
+.form-submit.sent {
+    background: var(--success);
+    color: var(--white);
+    opacity: 1;
+}
+
+.form-submit.sent:hover {
+    transform: none;
 }
 
 .form-note {
