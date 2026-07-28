@@ -22,12 +22,15 @@
     <meta property="og:image" content="https://llorizzmind.com/assets/images/og.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="LLorizzMind — agentes de IA y CRM para inmobiliarias">
+    <meta property="og:site_name" content="LLorizzMind">
     <meta property="og:locale" content="es_ES">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Agentes de IA para inmobiliarias | LLorizzMind">
     <meta name="twitter:description"
         content="Agentes de IA que atienden, cualifican y agendan visitas 24/7 en WhatsApp, Idealista y Fotocasa. Con CRM incluido.">
     <meta name="twitter:image" content="https://llorizzmind.com/assets/images/og.png">
+    <meta name="twitter:image:alt" content="LLorizzMind — agentes de IA y CRM para inmobiliarias">
 
     <!-- Fuentes críticas -->
     <link rel="preload" href="assets/fonts/SpaceGrotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -53,6 +56,7 @@
         },
         {
           "@type": "Service",
+          "@id": "https://llorizzmind.com/#service",
           "name": "Agentes de IA y CRM para inmobiliarias",
           "serviceType": "Automatización con IA para agencias inmobiliarias",
           "provider": { "@id": "https://llorizzmind.com/#org" },
@@ -62,6 +66,87 @@
             { "@type": "Country", "name": "AR" }
           ],
           "description": "Agentes de IA conversacionales que atienden, cualifican y agendan visitas en WhatsApp, Idealista y Fotocasa, con CRM inmobiliario incluido."
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://llorizzmind.com/#website",
+          "url": "https://llorizzmind.com/",
+          "name": "LLorizzMind",
+          "inLanguage": "es-ES",
+          "publisher": { "@id": "https://llorizzmind.com/#org" }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://llorizzmind.com/#webpage",
+          "url": "https://llorizzmind.com/",
+          "name": "Agentes de IA para inmobiliarias | LLorizzMind",
+          "description": "Agentes de IA que atienden, cualifican y agendan visitas 24/7 en WhatsApp, Idealista y Fotocasa. Con CRM incluido. Para inmobiliarias en España y LATAM.",
+          "isPartOf": { "@id": "https://llorizzmind.com/#website" },
+          "about": { "@id": "https://llorizzmind.com/#service" },
+          "inLanguage": "es-ES"
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://llorizzmind.com/#faq",
+          "isPartOf": { "@id": "https://llorizzmind.com/#webpage" },
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "¿Se integra con Idealista y Fotocasa?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sí. Cuando un lead te escribe desde el portal, el agente recibe el aviso y le responde al momento, sin que nadie tenga que entrar al panel de Idealista o Fotocasa."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿El cliente se da cuenta de que habla con una IA?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "El agente se presenta como asistente de tu inmobiliaria y escribe con naturalidad. No finge ser humano: si alguien lo pregunta, lo dice. En la práctica, el cliente valora más recibir respuesta al momento que quién teclea."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Qué pasa con los datos de mis leads y el RGPD?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Tus leads son tuyos. Se tratan conforme al RGPD, con base legal, información al interesado y derecho de supresión, y no se comparten con terceros ni se usan para otros clientes."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Cuánto tarda la implantación?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Lo habitual es tener el agente respondiendo en unas dos semanas: cargamos tu cartera, definimos tono y respuestas contigo y lo probamos en privado antes de activarlo."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Necesito cambiar mi CRM actual?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. El CRM de LLorizzMind viene incluido y puedes usarlo desde el primer día, pero si tu equipo ya trabaja con otro, estudiamos cómo pasarle los leads cualificados."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Y si el agente no sabe responder algo?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Lo reconoce y no se lo inventa. Avisa a alguien de tu equipo y le pasa la conversación con todo el contexto para que la retome donde se quedó."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Cuánto cuesta?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Depende del volumen de leads que manejes. El modelo tiene dos partes: una implantación inicial, donde configuramos el agente y el CRM con tu cartera y tu forma de trabajar, y una cuota mensual según el volumen de leads que atienda. En la demo te damos un precio cerrado para tu caso."
+              }
+            }
+          ]
         }
       ]
     }
@@ -471,7 +556,6 @@
                 <div class="faq-list" data-reveal-group>
                     <details class="faq-item">
                         <summary>¿Se integra con Idealista y Fotocasa?</summary>
-                        <!-- REVISAR: mecanismo exacto de conexión con cada portal -->
                         <p>Sí. Cuando un lead te escribe desde el portal, el agente recibe el aviso y le responde al
                             momento, sin que nadie tenga que entrar al panel de Idealista o Fotocasa.</p>
                     </details>
@@ -483,19 +567,16 @@
                     </details>
                     <details class="faq-item">
                         <summary>¿Qué pasa con los datos de mis leads y el RGPD?</summary>
-                        <!-- REVISAR: ubicación de servidores y acuerdo de encargado de tratamiento -->
                         <p>Tus leads son tuyos. Se tratan conforme al RGPD, con base legal, información al interesado y
                             derecho de supresión, y no se comparten con terceros ni se usan para otros clientes.</p>
                     </details>
                     <details class="faq-item">
                         <summary>¿Cuánto tarda la implantación?</summary>
-                        <!-- REVISAR: plazo real con los últimos proyectos -->
                         <p>Lo habitual es tener el agente respondiendo en unas dos semanas: cargamos tu cartera,
                             definimos tono y respuestas contigo y lo probamos en privado antes de activarlo.</p>
                     </details>
                     <details class="faq-item">
                         <summary>¿Necesito cambiar mi CRM actual?</summary>
-                        <!-- REVISAR: integraciones disponibles con CRMs de terceros -->
                         <p>No. El CRM de LLorizzMind viene incluido y puedes usarlo desde el primer día, pero si tu
                             equipo ya trabaja con otro, estudiamos cómo pasarle los leads cualificados.</p>
                     </details>
@@ -506,7 +587,6 @@
                     </details>
                     <details class="faq-item">
                         <summary>¿Cuánto cuesta?</summary>
-                        <!-- REVISAR: ajustar cifras -->
                         <p>Depende del volumen de leads que manejes. El modelo tiene dos partes: una implantación
                             inicial, donde configuramos el agente y el CRM con tu cartera y tu forma de trabajar, y una
                             cuota mensual según el volumen de leads que atienda. En la demo te damos un precio cerrado

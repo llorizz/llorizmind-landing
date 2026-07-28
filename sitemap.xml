@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Página principal: único contenido indexable hoy. -->
+  <url>
+    <loc>https://llorizzmind.com/</loc>
+    <lastmod>2026-07-23</lastmod>
+  </url>
+
+  <!--
+    NO se incluyen aquí a propósito:
+      - /privacidad.html y /terminos.html  -> llevan <meta name="robots" content="noindex, follow">.
+        Un sitemap solo debe listar URLs que quieres en el índice; incluirlas contradiría el noindex.
+      - /google79981702d9fe0427.html       -> archivo de verificación de Search Console.
+
+    Páginas recomendadas para posicionar (descomenta cada bloque el día que exista
+    la página real, y actualiza <lastmod>). Ver notas en README/respuesta.
+
+  <url>
+    <loc>https://llorizzmind.com/agente-ia-whatsapp-inmobiliaria/</loc>
+    <lastmod>2026-07-23</lastmod>
+  </url>
+  <url>
+    <loc>https://llorizzmind.com/crm-inmobiliario-con-ia/</loc>
+    <lastmod>2026-07-23</lastmod>
+  </url>
+  <url>
+    <loc>https://llorizzmind.com/automatizar-leads-idealista/</loc>
+    <lastmod>2026-07-23</lastmod>
+  </url>
+  <url>
+    <loc>https://llorizzmind.com/automatizar-leads-fotocasa/</loc>
+    <lastmod>2026-07-23</lastmod>
+  </url>
+  <url>
+    <loc>https://llorizzmind.com/casos-de-exito/</loc>
+    <lastmod>2026-07-23</lastmod>
+  </url>
+  <url>
+    <loc>https://llorizzmind.com/precios/</loc>
+    <lastmod>2026-07-23</lastmod>
+  </url>
+  <url>
+    <loc>https://llorizzmind.com/blog/</loc>
+    <lastmod>2026-07-23</lastmod>
+  </url>
+  -->
+
+</urlset>

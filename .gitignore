@@ -4,3 +4,10 @@
 node_modules/
 .DS_Store
 .playwright-mcp/
+.venv/
+
+# Herramientas locales (skills de agentes), no forman parte del sitio
+.claude/
+.agents/
+skills-lock.json
+SKILL.md
