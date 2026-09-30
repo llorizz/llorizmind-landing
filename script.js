@@ -21,33 +21,37 @@ document.documentElement.classList.remove('no-js');
 
 const nav = $('#nav');
 
-const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);
-onScroll();
-window.addEventListener('scroll', onScroll, { passive: true });
+if (nav) {
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+}
 
 const navToggle = $('#nav-toggle');
 const navMobile = $('#nav-mobile');
 
-function setMenu(open) {
-    navToggle.setAttribute('aria-expanded', String(open));
-    navToggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
-    navMobile.hidden = !open;
+if (navToggle && navMobile) {
+    const setMenu = (open) => {
+        navToggle.setAttribute('aria-expanded', String(open));
+        navToggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+        navMobile.hidden = !open;
+    };
+
+    navToggle.addEventListener('click', () => {
+        setMenu(navToggle.getAttribute('aria-expanded') !== 'true');
+    });
+
+    $$('a', navMobile).forEach((link) => {
+        link.addEventListener('click', () => setMenu(false));
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !navMobile.hidden) {
+            setMenu(false);
+            navToggle.focus();
+        }
+    });
 }
-
-navToggle.addEventListener('click', () => {
-    setMenu(navToggle.getAttribute('aria-expanded') !== 'true');
-});
-
-$$('a', navMobile).forEach((link) => {
-    link.addEventListener('click', () => setMenu(false));
-});
-
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !navMobile.hidden) {
-        setMenu(false);
-        navToggle.focus();
-    }
-});
 
 /* ---------- Reveal al scroll (una sola vez, stagger 60ms) ---------- */
 
@@ -227,11 +231,13 @@ if (howPanel && howWrap && howSteps.length && !reducedMotion.matches && 'Interse
 /* ---------- Elemento firma: la conversación que se escribe sola ---------- */
 
 const demoPanel = $('#demo-panel');
+const demoChat = $('#demo-chat');
+const demoFields = $('#demo-fields');
 const demoReplay = $('#demo-replay');
 
-if (demoPanel && !reducedMotion.matches) {
-    const steps = Array.from($('#demo-chat').children);
-    const fields = Array.from($('#demo-fields').children);
+if (demoPanel && demoChat && demoFields && demoReplay && !reducedMotion.matches) {
+    const steps = Array.from(demoChat.children);
+    const fields = Array.from(demoFields.children);
 
     // Pausa entre pasadas del bucle
     const REPLAY_DELAY = 5000;
