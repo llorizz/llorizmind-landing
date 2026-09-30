@@ -46,54 +46,81 @@
         {
           "@type": "Organization",
           "@id": "https://llorizzmind.com/#org",
-          "name": "LLorizzMind",
+          "name": "LlorizzMind",
           "url": "https://llorizzmind.com/",
           "logo": "https://llorizzmind.com/assets/images/logo-navy.png",
           "email": "montero@llorizzmind.com",
-          "description": "Agencia de automatización con IA para inmobiliarias en España y LATAM."
+          "description": "Agentes de IA y CRM para inmobiliarias.",
+          "sameAs": [
+            "https://www.instagram.com/llorizzmind/"
+          ],
+          "founder": {
+            "@type": "Person",
+            "@id": "https://llorizzmind.com/#diego-lloria",
+            "name": "Diego Lloria",
+            "jobTitle": "CEO",
+            "sameAs": [
+              "https://www.linkedin.com/in/diego-lloria-39ba5b396/"
+            ]
+          }
         },
         {
           "@type": "Service",
           "@id": "https://llorizzmind.com/#service",
           "name": "Agentes de IA y CRM para inmobiliarias",
           "serviceType": "Automatización con IA para agencias inmobiliarias",
-          "provider": { "@id": "https://llorizzmind.com/#org" },
+          "provider": {
+            "@id": "https://llorizzmind.com/#org"
+          },
           "areaServed": [
-            { "@type": "Country", "name": "ES" },
-            { "@type": "Country", "name": "MX" },
-            { "@type": "Country", "name": "AR" }
+            {
+              "@type": "Country",
+              "name": "España"
+            },
+            {
+              "@type": "Place",
+              "name": "Latinoamérica"
+            }
           ],
-          "description": "Agentes de IA conversacionales que atienden, cualifican y agendan visitas en WhatsApp, Idealista y Fotocasa, con CRM inmobiliario incluido."
+          "description": "Agentes de IA que responden, cualifican y agendan visitas por WhatsApp, Instagram y web cuando el equipo de la inmobiliaria no está disponible o está saturado, con CRM inmobiliario incluido."
         },
         {
           "@type": "WebSite",
           "@id": "https://llorizzmind.com/#website",
           "url": "https://llorizzmind.com/",
-          "name": "LLorizzMind",
+          "name": "LlorizzMind",
           "inLanguage": "es-ES",
-          "publisher": { "@id": "https://llorizzmind.com/#org" }
+          "publisher": {
+            "@id": "https://llorizzmind.com/#org"
+          }
         },
         {
           "@type": "WebPage",
           "@id": "https://llorizzmind.com/#webpage",
           "url": "https://llorizzmind.com/",
-          "name": "Agentes de IA para inmobiliarias | LLorizzMind",
-          "description": "Agentes de IA que atienden, cualifican y agendan visitas 24/7 en WhatsApp, Idealista y Fotocasa. Con CRM incluido. Para inmobiliarias en España y LATAM.",
-          "isPartOf": { "@id": "https://llorizzmind.com/#website" },
-          "about": { "@id": "https://llorizzmind.com/#service" },
+          "name": "Agentes de IA para inmobiliarias | LlorizzMind",
+          "description": "Agentes de IA que responden, cualifican y agendan visitas por WhatsApp, Instagram y web cuando tu equipo no llega. CRM incluido.",
+          "isPartOf": {
+            "@id": "https://llorizzmind.com/#website"
+          },
+          "about": {
+            "@id": "https://llorizzmind.com/#service"
+          },
           "inLanguage": "es-ES"
         },
         {
           "@type": "FAQPage",
           "@id": "https://llorizzmind.com/#faq",
-          "isPartOf": { "@id": "https://llorizzmind.com/#webpage" },
+          "isPartOf": {
+            "@id": "https://llorizzmind.com/#webpage"
+          },
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "¿Se integra con Idealista y Fotocasa?",
+              "name": "¿Qué canales atiende el agente?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Sí. Cuando un lead te escribe desde el portal, el agente recibe el aviso y le responde al momento, sin que nadie tenga que entrar al panel de Idealista o Fotocasa."
+                "text": "WhatsApp, Instagram y el formulario o chat de tu web. Responde las 24 horas, los 7 días de la semana, y se encarga sobre todo cuando tu equipo no está: por la noche, en fin de semana, en festivos o cuando va desbordado."
               }
             },
             {
@@ -125,7 +152,7 @@
               "name": "¿Necesito cambiar mi CRM actual?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "No. El CRM de LLorizzMind viene incluido y puedes usarlo desde el primer día, pero si tu equipo ya trabaja con otro, estudiamos cómo pasarle los leads cualificados."
+                "text": "No. El CRM de LlorizzMind viene incluido gratis, sin costes adicionales, y puedes usarlo desde el primer día. Si ya trabajas con otro, el agente se integra con cualquier CRM y le pasa los leads cualificados."
               }
             },
             {
@@ -141,7 +168,7 @@
               "name": "¿Cuánto cuesta?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Depende del volumen de leads que manejes. El modelo tiene dos partes: una implantación inicial, donde configuramos el agente y el CRM con tu cartera y tu forma de trabajar, y una cuota mensual según el volumen de leads que atienda. En la demo te damos un precio cerrado para tu caso."
+                "text": "Depende del volumen de leads que manejes. El modelo tiene dos partes: una implantación inicial, donde configuramos el agente y el CRM con tu cartera y tu forma de trabajar, y una cuota mensual según el volumen de leads que atienda. En la demo te damos un precio cerrado para tu caso. Tienes el detalle en la página de precios."
               }
             }
           ]
