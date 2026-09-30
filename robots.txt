@@ -1,10 +1,4 @@
 User-agent: *
 Allow: /
 
-# Archivos de trabajo del repositorio, sin valor de búsqueda
-Disallow: /directivas/
-Disallow: /scripts/
-Disallow: /requirements.txt
-Disallow: /README.md
-
 Sitemap: https://llorizzmind.com/sitemap.xml

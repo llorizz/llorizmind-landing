@@ -1,0 +1,30 @@
+# Archivos de trabajo del repositorio: no deben ser accesibles públicamente.
+[[redirects]]
+  from = "/directivas/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/scripts/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/README.md"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/requirements.txt"
+  to = "/404.html"
+  status = 404
+  force = true
+
+# Fuentes e imágenes: caché larga.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
