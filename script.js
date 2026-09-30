@@ -1,14 +1,9 @@
 /* ============================================================
-   LLORIZZMIND — interacción
+   LlorizzMind — interacción
    Demo del hero, reveals al scroll y formulario.
+   Cada bloque comprueba que sus elementos existen: el mismo script
+   se carga en la home y en las páginas de servicio y del blog.
    ============================================================ */
-
-/* [REVISAR] URL del webhook de n8n para recibir los leads directamente en
-   tu pipeline. Si se deja vacío, el formulario envía por FormSubmit
-   (email a montero@llorizzmind.com). */
-const FORM_ENDPOINT = 'https://new-project-n8n.b5eoo1.easypanel.host/webhook/FormularioLlorizzMind';
-
-const FORMSUBMIT_AJAX = 'https://formsubmit.co/ajax/montero@llorizzmind.com';
 
 const $ = (sel, ctx = document) => ctx.querySelector(sel);
 const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
@@ -343,199 +338,185 @@ const form = $('#form-demo');
 const formPanel = $('#form-panel');
 const formResult = $('.form-result');
 const submitBtn = $('#form-submit');
-let resetTimer;
 
-const FIELDS = {
-    nombre: {
-        input: 'f-nombre',
-        error: 'err-nombre',
-        check: (v) => (v.trim() ? '' : 'Falta tu nombre')
-    },
-    inmobiliaria: {
-        input: 'f-inmobiliaria',
-        error: 'err-inmobiliaria',
-        check: (v) => (v.trim() ? '' : 'Falta el nombre de tu inmobiliaria')
-    },
-    email: {
-        input: 'f-email',
-        error: 'err-email',
-        check: (v) => {
-            if (!v.trim()) return 'Falta el email';
-            return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) ? '' : 'Ese email no parece válido';
+if (form && formPanel && formResult && submitBtn) {
+    // El webhook de n8n vive en el action del formulario: es el mismo destino
+    // con y sin JavaScript. Con JS se envía como JSON; sin JS, como POST
+    // clásico, y n8n responde con una redirección a /gracias/.
+    const FORM_ENDPOINT = form.action;
+
+    // Sin JS valida el navegador (atributos required); con JS, la validación inline
+    form.noValidate = true;
+    let resetTimer;
+
+    const FIELDS = {
+        nombre: {
+            input: 'f-nombre',
+            error: 'err-nombre',
+            check: (v) => (v.trim() ? '' : 'Falta tu nombre')
+        },
+        inmobiliaria: {
+            input: 'f-inmobiliaria',
+            error: 'err-inmobiliaria',
+            check: (v) => (v.trim() ? '' : 'Falta el nombre de tu inmobiliaria')
+        },
+        email: {
+            input: 'f-email',
+            error: 'err-email',
+            check: (v) => {
+                if (!v.trim()) return 'Falta el email';
+                return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) ? '' : 'Ese email no parece válido';
+            }
+        },
+        whatsapp: {
+            input: 'f-whatsapp',
+            error: 'err-whatsapp',
+            check: (v) => {
+                if (!v.trim()) return 'Falta tu número de WhatsApp';
+                return v.replace(/\D/g, '').length >= 7 ? '' : 'Ese número no parece válido';
+            }
+        },
+        leads_mes: {
+            input: 'f-leads',
+            error: 'err-leads',
+            check: (v) => (v ? '' : 'Elige un rango de leads')
         }
-    },
-    whatsapp: {
-        input: 'f-whatsapp',
-        error: 'err-whatsapp',
-        check: (v) => {
-            if (!v.trim()) return 'Falta tu número de WhatsApp';
-            return v.replace(/\D/g, '').length >= 7 ? '' : 'Ese número no parece válido';
+    };
+
+    let formAttempted = false;
+
+    function validateField(name) {
+        const field = FIELDS[name];
+        const input = document.getElementById(field.input);
+        const errorEl = document.getElementById(field.error);
+        const message = field.check(input.value);
+
+        if (message) {
+            errorEl.textContent = message;
+            errorEl.hidden = false;
+            input.setAttribute('aria-invalid', 'true');
+            input.setAttribute('aria-describedby', field.error);
+        } else {
+            errorEl.hidden = true;
+            input.removeAttribute('aria-invalid');
+            input.removeAttribute('aria-describedby');
         }
-    },
-    leads_mes: {
-        input: 'f-leads',
-        error: 'err-leads',
-        check: (v) => (v ? '' : 'Elige un rango de leads')
+        return !message;
     }
-};
 
-let formAttempted = false;
-
-function validateField(name) {
-    const field = FIELDS[name];
-    const input = document.getElementById(field.input);
-    const errorEl = document.getElementById(field.error);
-    const message = field.check(input.value);
-
-    if (message) {
-        errorEl.textContent = message;
-        errorEl.hidden = false;
-        input.setAttribute('aria-invalid', 'true');
-        input.setAttribute('aria-describedby', field.error);
-    } else {
-        errorEl.hidden = true;
-        input.removeAttribute('aria-invalid');
-        input.removeAttribute('aria-describedby');
+    function validateForm() {
+        let firstInvalid = null;
+        Object.keys(FIELDS).forEach((name) => {
+            const valid = validateField(name);
+            if (!valid && !firstInvalid) firstInvalid = document.getElementById(FIELDS[name].input);
+        });
+        if (firstInvalid) firstInvalid.focus();
+        return !firstInvalid;
     }
-    return !message;
-}
 
-function validateForm() {
-    let firstInvalid = null;
-    Object.keys(FIELDS).forEach((name) => {
-        const valid = validateField(name);
-        if (!valid && !firstInvalid) firstInvalid = document.getElementById(FIELDS[name].input);
-    });
-    if (firstInvalid) firstInvalid.focus();
-    return !firstInvalid;
-}
-
-Object.keys(FIELDS).forEach((name) => {
-    const input = document.getElementById(FIELDS[name].input);
-    input.addEventListener('input', () => {
-        if (formAttempted) validateField(name);
-    });
-});
-
-function escapeHtml(str) {
-    return str.replace(/[&<>"']/g, (c) => ({
-        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
-    }[c]));
-}
-
-function clearFieldErrors() {
     Object.keys(FIELDS).forEach((name) => {
         const input = document.getElementById(FIELDS[name].input);
-        const errorEl = document.getElementById(FIELDS[name].error);
-        errorEl.hidden = true;
-        input.removeAttribute('aria-invalid');
-        input.removeAttribute('aria-describedby');
+        input.addEventListener('input', () => {
+            if (formAttempted) validateField(name);
+        });
     });
-}
 
-function showSuccess(nombre) {
-    const primerNombre = nombre ? escapeHtml(nombre.trim().split(/\s+/)[0]) : '';
-
-    // Reinicia los campos y limpia validaciones previas
-    form.reset();
-    formAttempted = false;
-    clearFieldErrors();
-
-    // Botón en estado "enviado" + borde del formulario en verde
-    submitBtn.textContent = 'Enviado ✓';
-    submitBtn.classList.add('sent');
-    submitBtn.disabled = true;
-    formPanel.classList.add('sent');
-
-    formResult.innerHTML =
-        '<div class="form-result-ok">' +
-        '<h3>Recibido' + (primerNombre ? ', ' + primerNombre : '') + '.</h3>' +
-        '<p>Te escribimos por WhatsApp en menos de 24 horas para confirmar día y hora de la demo.</p>' +
-        '</div>';
-
-    // Rehabilita el formulario para poder enviar otra solicitud
-    clearTimeout(resetTimer);
-    resetTimer = setTimeout(resetFormState, 6000);
-}
-
-function resetFormState() {
-    clearTimeout(resetTimer);
-    submitBtn.textContent = 'Reservar demo';
-    submitBtn.classList.remove('sent');
-    submitBtn.disabled = false;
-    formPanel.classList.remove('sent');
-    formResult.innerHTML = '';
-}
-
-form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    formAttempted = true;
-    formResult.innerHTML = '';
-
-    // Si venimos de un envío anterior, deja el formulario limpio antes de validar
-    clearTimeout(resetTimer);
-    submitBtn.classList.remove('sent');
-    formPanel.classList.remove('sent');
-
-    if (!validateForm()) return;
-
-    // Honeypot: los bots lo rellenan; fingimos éxito sin enviar
-    if (form.elements._honey.value) {
-        showSuccess(form.elements.nombre.value);
-        return;
+    function escapeHtml(str) {
+        return str.replace(/[&<>"']/g, (c) => ({
+            '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+        }[c]));
     }
 
-    const nombre = form.elements.nombre.value;
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Enviando…';
+    function clearFieldErrors() {
+        Object.keys(FIELDS).forEach((name) => {
+            const input = document.getElementById(FIELDS[name].input);
+            const errorEl = document.getElementById(FIELDS[name].error);
+            errorEl.hidden = true;
+            input.removeAttribute('aria-invalid');
+            input.removeAttribute('aria-describedby');
+        });
+    }
 
-    // Aborta si el servidor no responde para no quedarnos en "Enviando…" para siempre
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 15000);
+    function showSuccess(nombre) {
+        const primerNombre = nombre ? escapeHtml(nombre.trim().split(/\s+/)[0]) : '';
 
-    try {
-        const data = new FormData(form);
-        data.delete('_honey');
+        // Reinicia los campos y limpia validaciones previas
+        form.reset();
+        formAttempted = false;
+        clearFieldErrors();
 
-        let sent = false;
-        // 1º intento: webhook de n8n (leads directos al pipeline).
-        // Solo acepta CORS desde https://llorizzmind.com, así que fuera de
-        // producción falla; en ese caso caemos a FormSubmit (email).
-        if (FORM_ENDPOINT) {
-            try {
-                const response = await fetch(FORM_ENDPOINT, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(Object.fromEntries(data)),
-                    signal: controller.signal
-                });
-                if (!response.ok) throw new Error('send-failed');
-                sent = true;
-            } catch (primaryErr) {
-                if (primaryErr.name === 'AbortError') throw primaryErr;
-            }
-        }
+        // Botón en estado "enviado" + borde del formulario en verde
+        submitBtn.textContent = 'Enviado ✓';
+        submitBtn.classList.add('sent');
+        submitBtn.disabled = true;
+        formPanel.classList.add('sent');
 
-        // 2º intento / fallback universal: FormSubmit (CORS abierto).
-        if (!sent) {
-            const response = await fetch(FORMSUBMIT_AJAX, {
+        formResult.innerHTML =
+            '<div class="form-result-ok">' +
+            '<h3>Recibido' + (primerNombre ? ', ' + primerNombre : '') + '.</h3>' +
+            '<p>Te escribimos por WhatsApp en menos de 24 horas para confirmar día y hora de la demo.</p>' +
+            '</div>';
+
+        // Rehabilita el formulario para poder enviar otra solicitud
+        clearTimeout(resetTimer);
+        resetTimer = setTimeout(resetFormState, 6000);
+    }
+
+    function resetFormState() {
+        clearTimeout(resetTimer);
+        submitBtn.textContent = 'Reservar demo';
+        submitBtn.classList.remove('sent');
+        submitBtn.disabled = false;
+        formPanel.classList.remove('sent');
+        formResult.innerHTML = '';
+    }
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        formAttempted = true;
+        formResult.innerHTML = '';
+
+        // Si venimos de un envío anterior, deja el formulario limpio antes de validar
+        clearTimeout(resetTimer);
+        submitBtn.classList.remove('sent');
+        formPanel.classList.remove('sent');
+
+        if (!validateForm()) return;
+
+        const nombre = form.elements.nombre.value;
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Enviando…';
+
+        // Aborta si el servidor no responde para no quedarnos en "Enviando…" para siempre
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 15000);
+
+        try {
+            // _honey (honeypot) viaja siempre: el filtro de spam vive en n8n,
+            // igual para el envío con JS que para el POST clásico sin JS.
+            const data = new FormData(form);
+
+            // Webhook de n8n (leads directos al pipeline). Solo acepta CORS desde
+            // https://llorizzmind.com, así que fuera de producción falla.
+            const response = await fetch(FORM_ENDPOINT, {
                 method: 'POST',
-                headers: { Accept: 'application/json' },
-                body: data,
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(Object.fromEntries(data)),
                 signal: controller.signal
             });
             if (!response.ok) throw new Error('send-failed');
-        }
 
-        showSuccess(nombre);
-    } catch (err) {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Reservar demo';
-        submitBtn.classList.remove('sent');
-        formPanel.classList.remove('sent');
-        formResult.innerHTML =
-            '<p class="form-result-err">No se ha podido enviar. Prueba otra vez o escríbenos a montero@llorizzmind.com.</p>';
-    } finally {
-        clearTimeout(timeout);
-    }
-});
+            showSuccess(nombre);
+        } catch (err) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Reservar demo';
+            submitBtn.classList.remove('sent');
+            formPanel.classList.remove('sent');
+            formResult.innerHTML =
+                '<p class="form-result-err">No se ha podido enviar. Escríbenos directamente a ' +
+                '<a href="mailto:montero@llorizzmind.com">montero@llorizzmind.com</a> y te respondemos.</p>';
+        } finally {
+            clearTimeout(timeout);
+        }
+    });
+}

@@ -629,42 +629,38 @@
                 </div>
 
                 <div class="form-panel" id="form-panel" data-reveal>
-                    <form class="form" id="form-demo" action="https://formsubmit.co/montero@llorizzmind.com" method="POST"
-                        novalidate>
-                        <input type="hidden" name="_subject" value="Nueva solicitud de demo — llorizzmind.com">
-                        <input type="hidden" name="_template" value="table">
-                        <input type="hidden" name="_captcha" value="false">
+                    <form class="form" id="form-demo" action="https://new-project-n8n.b5eoo1.easypanel.host/webhook/FormularioLlorizzMind" method="POST">
                         <input type="text" name="_honey" class="sr-only" tabindex="-1" autocomplete="off"
                             aria-hidden="true">
 
                         <div class="field">
                             <label for="f-nombre">Nombre</label>
-                            <input type="text" id="f-nombre" name="nombre" autocomplete="name">
+                            <input type="text" id="f-nombre" name="nombre" autocomplete="name" required>
                             <p class="field-error" id="err-nombre" hidden></p>
                         </div>
 
                         <div class="field">
                             <label for="f-inmobiliaria">Inmobiliaria</label>
-                            <input type="text" id="f-inmobiliaria" name="inmobiliaria" autocomplete="organization">
+                            <input type="text" id="f-inmobiliaria" name="inmobiliaria" autocomplete="organization" required>
                             <p class="field-error" id="err-inmobiliaria" hidden></p>
                         </div>
 
                         <div class="field field-half">
                             <label for="f-email">Email</label>
-                            <input type="email" id="f-email" name="email" autocomplete="email" inputmode="email">
+                            <input type="email" id="f-email" name="email" autocomplete="email" inputmode="email" required>
                             <p class="field-error" id="err-email" hidden></p>
                         </div>
 
                         <div class="field field-half">
                             <label for="f-whatsapp">WhatsApp</label>
-                            <input type="tel" id="f-whatsapp" name="whatsapp" autocomplete="tel" inputmode="tel"
+                            <input type="tel" id="f-whatsapp" name="whatsapp" autocomplete="tel" inputmode="tel" required
                                 placeholder="+34 600 000 000">
                             <p class="field-error" id="err-whatsapp" hidden></p>
                         </div>
 
                         <div class="field">
                             <label for="f-leads">¿Cuántos leads recibes al mes?</label>
-                            <select id="f-leads" name="leads_mes">
+                            <select id="f-leads" name="leads_mes" required>
                                 <option value="" selected>Elige un rango</option>
                                 <option value="Menos de 50">Menos de 50</option>
                                 <option value="Entre 50 y 150">Entre 50 y 150</option>
